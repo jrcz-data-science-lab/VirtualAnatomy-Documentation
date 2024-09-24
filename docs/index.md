@@ -14,4 +14,3 @@ The project itself is devided into several repositories
 - Python script for generating JSON files that can be loaded in Model taggin application [GitHub](https://github.com/jrcz-data-science-lab/Anatomy-blender-auto-prepare)     
 - This docuementation [GitHub](https://github.com/jrcz-data-science-lab/3D-Anatomy-Documentation)
 
-
