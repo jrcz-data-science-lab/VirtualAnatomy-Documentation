@@ -40,3 +40,11 @@ For Mac OS install [Rider](https://www.jetbrains.com/rider/), and launch the pro
 For how to set up project up and running on Linux please reffer to [this file](/3D-Anatomy-UE/Linux-set-up) 
 
 
+### C++ code guide lines 
+
+### Class naming conventions
+
+### Forward declaration of headers 
+
+### Unreal Engine C++ API 
+
