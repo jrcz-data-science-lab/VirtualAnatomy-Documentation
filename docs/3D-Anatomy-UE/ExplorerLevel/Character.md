@@ -1,5 +1,5 @@
 # Character
- 
+
 
 Here we will cover basics like how come that i can walk around the scene without actualy seing cammera. Or how is it possible that I can rotate without finding `OnUserClick` event. 
 
@@ -47,6 +47,8 @@ This is covered in the following section.
 
 This class inherits `ACharacter` which means that our the player (user) is able to controll the character and move it in the scene. 
 
+Now we will walk your throught the `CPP_User.h` file which contains the definition of the `CPP_User` class 
+
 ### `ACPP_User();`
 Constructor of the class. Here we set up camera togher with the spring arm component to aid us with collisions with meshes and floor. 
 
@@ -75,11 +77,81 @@ If you visit the `BP_User` and open the view port you can see both spring arm an
 
 ![camera and user in view port](./docs/images/camera-and-spring-arm-in-view-port.png)
 
+
+## Public fiels 
+
 ----
 
 ### `AActor* TargetActor`
 
 This is the invisible actor in the scene which is specifing the target around which our camera orbits.
+
+This actor is moved around the model of the human body so based on which part of the body was selected. See [ActorSelector]()
+
+----
+
+### `USpringArmComponent* CameraBoom;`
+
+This pointer holds the spring arm component thorught this pointer you can access it and manipulate it **whithin the class**
+
+----
+
+### `UCameraComponent* MainCamera;`
+
+This is the pointer to the actual camera that is going to be used for the player (user in our case). 
+
+Once your press the play button in Unreal Editor you will see what this camera seas. It is really taht simple 
+
+----
+
+###	`void BeginPlay()`
+
+This is function that is inhereted from the `ACharacter`. It is overwritten so that we can put anything we want to happen once you press the play button in the controller.
+
+For example if you want user to start spinning once game starts you put it there. 
+
+
+Here we setup our defautl `TargetActor` and `RayCaster` since both of them require access to the `World` and `World` is not accessible during the construction time e.g. in constructor.
+
+-----
+
+## Protected fields 
+
+-----
+
+###	`void Zoom(const FInputActionValue& Value)`
+
+This action gets exetued once the user zooms in. The `FInputActionValue` is reference to the ammount of which user used inside. This is handled through the Enhanced Input system of the Unreal Engine. 
+
+In other words this function zooms the player either in or out in the scene based on how much he spinned the mouse whele or moved his fingers on touch pad. 
+
+----
+
+###	`void Look(const FInputActionValue& Value)`
+
+Function that gets exectued once user turns around using his mouse, touchpad or touch screen. 
+
+To calculate the rotation of the acctor the function takes position of the actor at which we want to look at.
+
+It substracts the player (user) position from the position of the `Target Actor` to get the direction pointing towards that target actor.
+
+We that normalize this direction to be of the length of 1
+
+And calculate how much should the character (user) rotate around this actor using `RotationDelta` once this is calculated we construct rotation matrix to preform the acctual rotation. 
+
+We apply this matrix on the calculated direction to get the new direction at which is our player looking at.
+
+And lastly we calculate the new position of the player (user) using this newly calculated direction. 
+
+----
+
+### `void Click(const FInputActionValue& Value);`
+
+This function is exectued once per click
+
+The value here should represent the position of the mouse in the `world space` howver for some reson it did not work as intedet therefore we used `Unproject ` to calculate this value ourseles
+
+This functio also preforms ray cast to determine on which actor user cliked on (if any) sets new position of the target actor to update where the camera should look at and highlight the selected mesh. 
 
 
 
