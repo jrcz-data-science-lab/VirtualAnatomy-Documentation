@@ -2,7 +2,46 @@ site_name: 3D-Anatomy-Docs
 include_sidebar: false
 theme: 
   name: material
-  palette: 
-    primary: deep-purple
+  palette:
+  - scheme: red
+    primary: red
+    accent: red
+    toggle: 
+      icon: material/toggle-switch-off-outline
+      name: Switch to dark mode
+  - scheme: orange
+    primary: deep-orange
+    accent: orange
+    toggle: 
+      icon: material/toggle-switch
+      name: Switch to light mode
+  - scheme: yellow
+    primary: yellow
+    accent: yellow
+    toggle: 
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - scheme: green 
+    primary: green
+    accent: green
+    toggle: 
+      icon: material/weather-night
+      name: Switch to light mode
+  - scheme: light-blue 
+    primary: light-blue
+    accent: light-blue
+    toggle: 
+      icon: material/eye-outline
+      name: Switch to light mode
+  - scheme: indigo 
+    primary: indigo
     accent: indigo
-    
+    toggle: 
+      icon: material/eye
+      name: Switch to light mode
+  - scheme: purple 
+    primary: purple
+    accent: purple
+    toggle: 
+      icon: material/lightbulb-outline
+      name: Switch to light mode
