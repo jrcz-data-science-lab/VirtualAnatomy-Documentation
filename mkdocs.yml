@@ -1,2 +1,8 @@
 site_name: 3D-Anatomy-Docs
 include_sidebar: false
+theme: 
+  name: material
+  palette: 
+    primary: deep-purple
+    accent: indigo
+    
