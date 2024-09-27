@@ -1,4 +1,4 @@
-# 3D-Anatomy Documentation
+# Virtual Anatomy Documentation
 Documentation created using MkDocs.
 
 ## Branches 
