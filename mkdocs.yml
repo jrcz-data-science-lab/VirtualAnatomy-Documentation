@@ -3,10 +3,22 @@ include_sidebar: false
 site_description: 'Documentation for VirtualAnatomy'
 site_author: 'JRCZ'
 docs_dir: docs/
-repo_name: 'jrcz-data-science-lab/3D-Anatomy-Documentation'
+repo_name: 'Virtual-Anatomy-Docs'
 repo_url: 'https://github.com/jrcz-data-science-lab/3D-Anatomy-Documentation'
 nav:
-    - Home: index.md
+  - Home: index.md
+  - About Project: about-project.md
+  - Virtual Anatomy:
+      - Introduction: VirtualAnatomy/Introduction.md
+      - Linux Set-Up: VirtualAnatomy/Linux-set-up.md
+      - Explorer Level:
+          - Anatomy Helpers: VirtualAnatomy/ExplorerLevel/AnatomyHelpers.md
+          - Character: VirtualAnatomy/ExplorerLevel/Character.md
+          - First Steps: VirtualAnatomy/ExplorerLevel/FirstSteps.md
+          - Mesh Selector: VirtualAnatomy/ExplorerLevel/MeshSelector.md
+          - Ray Casting: VirtualAnatomy/ExplorerLevel/RayCasting.md
+      - Main Menu Level:
+          - Landing Page: VirtualAnatomy/MainMenuLevel/LandingPage.md  
 theme: 
   name: material
   palette:
