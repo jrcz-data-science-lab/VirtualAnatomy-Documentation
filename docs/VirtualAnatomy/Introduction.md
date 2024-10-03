@@ -40,9 +40,43 @@ For how to set up project up and running on Linux please reffer to [this file](/
 
 ### C++ code guide lines 
 
-### Class naming conventions
+For class members that have macro `UPROPERTY` or `UFUNCTION` defined above them we have used the `PascalCase`
+
+For functions that are used inside classes we have also used `PascalCase`
+
+For private member functions that are only accesible within the classes we have used `m_` prefix and `smallPacalCase` example
+
+
+```c++
+class FooBar{
+
+public:
+    Foo(std::string name);
+
+public:
+    UPROPERTY(BlueprintReadOnly)
+    AActor* actor
+
+    UFUNCTION(BlueprintCallable)
+    void DisplayFoo(bool& success);
+
+private:
+    int m_countOfFoos;
+}
+
+```
+
+### Class names
+
+Class names are specified with `PascalCase`
+
 
 ### Forward declaration of headers 
 
-### Unreal Engine C++ API 
+In `C++` you can use `#include` prepocessor to include external header files. This however is going to take long time to compile, therefore we have used forward declaration wherever possible inside the header files and only use `#include` preprocessor inside the `cpp` files. 
+
+
+### Memory safety
+
+We have designed the class strucutre around `Ownership` priciple. To do that we have use `smart pointers` that are defined by unreal engine. This assures that only given class can "own" the resource and others can only borrow it without additionaly coppies. 
 
