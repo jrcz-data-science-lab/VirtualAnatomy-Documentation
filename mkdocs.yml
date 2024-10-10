@@ -2,9 +2,13 @@ site_name: Virtual Anatomy docs
 include_sidebar: false
 site_description: 'Documentation for VirtualAnatomy'
 site_author: 'JRCZ'
+site_url: https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/
 docs_dir: docs/
 repo_name: 'Virtual-Anatomy-Docs'
 repo_url: 'https://github.com/jrcz-data-science-lab/3D-Anatomy-Documentation'
+markdown_extensions:
+  - attr_list
+  - md_in_html
 nav:
   - Home: index.md
   - About Project: about-project.md
