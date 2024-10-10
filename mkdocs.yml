@@ -12,6 +12,7 @@ nav:
       - Introduction: VirtualAnatomy/Introduction.md
       - Linux Set-Up: VirtualAnatomy/Linux-set-up.md
       - Explorer Level:
+          - Animations: VirtualAnatomy/ExplorerLevel/Animations.md
           - Anatomy Helpers: VirtualAnatomy/ExplorerLevel/AnatomyHelpers.md
           - Character: VirtualAnatomy/ExplorerLevel/Character.md
           - First Steps: VirtualAnatomy/ExplorerLevel/FirstSteps.md
