@@ -12,7 +12,7 @@ The character is what you would expect it to be: to walk around and interact wit
 The character is spawned at the player start location, which can be seen in the `World Explorer` menu on the right.
 
 
-![player-start-in-world-view](images/player-start.png)
+![player-start-in-world-view](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/player-start.png)
 
 To specify which character is going to be spawned inside the level, we can open the `CPP_GameMode.cpp` file, and inside the constructor, we see this code:
 
@@ -78,7 +78,7 @@ If you visit the `BP_User` and open the viewport, you can see both the spring ar
 
 > **NOTE:** To see the viewport of the blueprint, you have to enable the **full blueprint editor**. It should prompt you to do so once you double-click on the `BP_User`.
 
-![camera and user in view port](./docs/images/camera-and-spring-arm-in-view-port.png)
+![camera and user in view port](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/camera-and-spring-arm-in-view-port.png)
 
 
 ## Public fiels 
