@@ -20,7 +20,7 @@ On the very bottom of the Unreal Engine, you should see an icon with a folder; t
 
 
 ```shell
- Blueprints
+ ├── Blueprints
 │   ├── InfoElements
 │   └── UserControls
 ├── Collections
@@ -36,6 +36,23 @@ On the very bottom of the Unreal Engine, you should see an icon with a folder; t
 │       └── nl-NL
 ├── Maps
 ├── Materials
+│   ├── Body-Merged-Full
+│   │   ├── Animations
+│   │   │   ├── Body
+│   │   │   ├── Hearth
+│   │   │   └── Lungs
+│   │   ├── Arteries
+│   │   ├── Bones
+│   │   ├── Hearth
+│   │   │   ├── Hearth
+│   │   │   ├── PapillaryMuscle
+│   │   │   └── Valves
+│   │   └── Lungs
+│   ├── Body-No-Material
+│   │   ├── Arteries
+│   │   ├── Bones
+│   │   ├── Hearth
+│   │   └── Lungs
 │   ├── ElementActions
 │   │   ├── Outliner
 │   │   └── Slicer
@@ -106,6 +123,7 @@ On the very bottom of the Unreal Engine, you should see an icon with a folder; t
     │   └── Sidebar
     ├── Images
     │   └── LocationWidget
+    ├── Islands
     ├── LevelUI
     │   ├── ExplorerLevelUI
     │   │   └── Sidebars
@@ -113,7 +131,6 @@ On the very bottom of the Unreal Engine, you should see an icon with a folder; t
     │       └── Sidebars
     ├── Menus
     └── ReusableButtons
-
 ```
 
 That is a lot of directories, right? Let's walk through them really superficially to get a basic idea of what is going on.
@@ -144,9 +161,18 @@ Levels are independent of each other and are exactly like levels in any video ga
 
 ### Materials
 
-This folder should be renamed to `Assets` instead of `Materials`, but it is what it is.
+This folder should ideally be renamed to `Assets` instead of `Materials`, but for now, it remains as is.
 
-In short, you can find here all of the meshes, textures, materials, and HDRIs that are used in the levels.
+In short, this folder contains all the meshes, textures, materials, and HDRIs used in the levels.
+
+### Materials/Body-Merged-Full
+
+This subfolder contains all the merged body parts such as the heart, bones, and lungs. Additionally, you will also find the `Animations` folder here, which, as the name suggests, contains all the animations.
+
+### Materials/Body-No-Materials
+
+This subfolder contains individual meshes used for selecting specific parts of the body.
+
 
 > **NOTE**: When you change an asset here, it will not be updated inside the View Port and World Explorer.
 
@@ -166,9 +192,7 @@ This is pretty self-explanatory.
 
 Here you can find all of the widget Blueprints. In other words, every UI component, like buttons, menus, main pages, etc., can be found and edited here.
 
-### EndlessRunner
-
-> **FUN FACT**: Previous developers initially named the project "Endless Runner" for some reason, and it became quite difficult to rename it after they were halfway through the development. This resulted in the project now being called "EndlessRunnder." Feel free to rename it; good luck!
+### Virtual anatomy 
 
 In this directory is the main source code of the entire application. Here you can find another subdirectory, `C++`, which contains the actual C++ code.
 
