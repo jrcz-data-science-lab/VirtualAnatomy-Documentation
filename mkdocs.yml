@@ -22,6 +22,8 @@ nav:
           - First Steps: VirtualAnatomy/ExplorerLevel/FirstSteps.md
           - Mesh Selector: VirtualAnatomy/ExplorerLevel/MeshSelector.md
           - Ray Casting: VirtualAnatomy/ExplorerLevel/RayCasting.md
+          - UI:
+            - GeneralAproach: VirtualAnatomy/ExplorerLevel/UI/HowIsUIDone.md
       - Main Menu Level:
           - Landing Page: VirtualAnatomy/MainMenuLevel/LandingPage.md  
 theme: 

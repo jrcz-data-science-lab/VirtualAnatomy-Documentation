@@ -19,7 +19,12 @@ We have only rigged and animated the merged meshes that are displayed in the vie
    It is important to load the skeleton (not the skeletal mesh) into the sequencer.
 
 4. **Baking and Playing the Animation**:  
-   Once we were satisfied with the animation, we baked it into an animation asset. After that, we used the `Animation Blueprint` to play the animation.
+   Once we were satisfied with the animation, we baked it into an animation asset. 
+
+5. **Creating Animation Blueprint**:
+   To access animations in C++, we created a C++ class for each animation and then generated an animation blueprint from these classes. The animations are located inside the `Animations` folder.
+
+> **Important:** Each C++ animation class must inherit from the `BaseAnimation` class, allowing us to manipulate the animations during the simulation.
 
 ## Naming Conventions Used
 
