@@ -24,3 +24,26 @@ Let's say we want to create a button named `UCPP_FooButton`. Here's the process 
 ### Why This Approach?
 
 We chose this method to write clean and clear code in `C++` while allowing easy access to functions via blueprints. Additionally, it lets us design various UI components using the Unreal Engine's UI editor, combining the flexibility of C++ logic with the simplicity of the visual UI editor.
+
+### Bindings 
+
+In some of the heaIn some of the header files of user widgets, you might see code similar to this one:der files of the user widgets you might see code similuar to this one 
+
+```c++
+		UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+		TObjectPtr<UHorizontalBox> HorizontalFlexBox;
+	
+		UPROPERTY(BlueprintReadWrite, meta = (BindWidget))
+		TObjectPtr<UBorder> Background;
+```
+This simply defines that the UI created based on this class will include these components. If you look inside the widget blueprint for this class, you might see these two components listed in the Binding tab of the UMG editor.
+
+### Simple example
+
+- Create the Widget: Open the UMG editor and create a new widget named MyCustomWidget.
+- Add Components: Drag a Button and a TextBlock onto the canvas.
+- Match Names: Rename the Button to MyButton and the TextBlock to MyTextBlock to match the names defined in your class.
+
+By following these steps, the UMG editor will automatically bind these components to the properties in your class, allowing you to manipulate them in your Blueprint or C++ code.
+
+This approach was chosen to enable us to change the properties of specific UI elements directly from the C++ class without any issues.
