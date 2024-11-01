@@ -15,7 +15,7 @@ To overcome this issue, we decided to use `delegates`, which are C++ mechanisms 
 High level overview can be seen in this image:
 
 <figure markdown="span">
-  ![Simulation event graph](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/simulation-event-graph.png){  }
+  ![Simulation event graph](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/simulation-event-graph.png)
   <figcaption>Event graph of simulation</figcaption>
 </figure>
 
@@ -74,9 +74,24 @@ Due to the reseons unrelevant to explain here unreal engine will cause crash sin
 ```c++
 void Class::NativeDestructor()
 {
-    Super::NativeDestructor();
+  Super::NativeDestructor();
 	SimulationManager->StartSimulationEventDelegate.RemoveUObject(this, &ACPP_ArteriesBloodFlowSimulation::OnSimulationStart);
 }
 ```
 
 ## Starting the animations on simualtion button 
+
+Since each individual animation blueprint prefixed with `BPA_` is inherited from its own C++ class, and each class is further inherited from `CPP_BaseAnimation`, we can start and stop all animations simultaneously once the simulation manager dispatches the start simulation event. 
+
+If a specific human body animation requires modifications such as a delay or other adjustments these changes can be made in the base class of that animation blueprint or in the animation blueprint itself. 
+
+For more details see [Animation classs specification](/VirtualAnatomy-Documentation/VirtualAnatomy/ExplorerLevel/Animations/BaseAnimationClass/)
+
+## Class diagram 
+
+Finally to make sense of everything plase see this class diagram
+
+<figure markdown="span">
+  ![Simulation event graph](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/Simulation-Class-Diagram.png) <figcaption>Event graph of simulation</figcaption>
+</figure>
+

@@ -32,3 +32,4 @@ We have only rigged and animated the merged meshes that are displayed in the vie
 - `CamelCase` for baked animation sequences.
 - `SEQ_` prefix for sequencers.
 - `BPA_` prefix for animation blueprints.
+

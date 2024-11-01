@@ -16,7 +16,9 @@ nav:
       - Introduction: VirtualAnatomy/Introduction.md
       - Linux Set-Up: VirtualAnatomy/Linux-set-up.md
       - Explorer Level:
-          - Animations: VirtualAnatomy/ExplorerLevel/Animations.md
+          - Animations:
+            - General: VirtualAnatomy/ExplorerLevel/Animations/Animations.md
+            - BaseAnimationClass: VirtualAnatomy/ExplorerLevel/Animations/BaseAnimationClass.md
           - Anatomy Helpers: VirtualAnatomy/ExplorerLevel/AnatomyHelpers.md
           - Character: VirtualAnatomy/ExplorerLevel/Character.md
           - First Steps: VirtualAnatomy/ExplorerLevel/FirstSteps.md
@@ -24,6 +26,7 @@ nav:
           - Ray Casting: VirtualAnatomy/ExplorerLevel/RayCasting.md
           - Simulation: 
             - General overview: VirtualAnatomy/ExplorerLevel/Simulation/GeneralOverview.md  
+            - Blood flow simulation: VirtualAnatomy/ExplorerLevel/Simulation/BloodFlowSimulaiton.md
           - UI:
             - GeneralAproach: VirtualAnatomy/ExplorerLevel/UI/HowIsUIDone.md
             - UI Classes:
