@@ -26,5 +26,12 @@ To represent individual blood cells, we created a CPP_Cell class. This class inc
 
 We then created a Blueprint that inherits from the CPP_Cell class. For maintainability, the implementation of the blood cell’s movement along the splines is handled within this Blueprint. For additional guidance on this implementation, you can refer to [this video](https://www.youtube.com/watch?v=-V6D5WtemMI). 
 
+### Spawning cells
+The Blueprint version of the cell is spawned into the world instead. If we were to spawn the CPP_Cell instead of the BP_Cell than logic behind moving alpng splines wpuld have to be implemented purely in CPP which would be rather painfull. To specify the blueprint version of the Blood Cell we have created a new member field in CPP_Cell that holds the type of the blueprint to spawn. This blueprint is assigned in the editor since the property is set to be EditAnywhere 
+
+### Passing splines
+The cell is unaware of what spline to follow to specifi the spline inside the CPP_Bloodflow we are itterating over all of the children of the aretoes skeleal mesh since thi is where splines are located then we retriece the pointer to this spline and we 
+
 >**POSIBLE FUTURE IMPROVEMENT:** Currently, the splines are created manually using Unreal Engine’s spline creation tool. We trace the paths of arteries and veins, looping them through the heart region to simulate blood flow. While this setup creates a convincing illusion, an improvement would be to dynamically generate splines directly from the arteries and veins meshes. However, implementing this is challenging because the meshes are constructed from arrays of vertex positions with no inherent hierarchy. This lack of structure makes it difficult to automatically generate splines that follow the natural flow paths within these complex anatomical shapes. We have explored the possibility of voxelizing the meshes into a sparse voxel octree (SVO) structure. This approach could provide a more structured representation of the arteries and veins, potentially simplifying the process of spline generation by allowing the traversal of a hierarchical, voxel-based approximation of the mesh.  
+
 
