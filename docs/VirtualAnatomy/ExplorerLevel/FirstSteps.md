@@ -205,3 +205,23 @@ Here are all of the header files containing definitions of classes, methods, and
 This directory contains all of the definitions for the header files (.cpp).
 
 Some header files (and cpp files) are not visible through the Unreal Editor interface (like `CPP_RayCaster`, `CPP_ObjectSelector`), but some are, like `CPP_User`. This is because the class `CPP_RayCaster` does not inherit from any of the Engine's classes like `UObject` or `AActor`. To see those "hidden" files, please open the file in Visual Studio, JetBrains Rider, VSCode, or any other IDE or code editor you prefer.
+
+## How to Approach This Giant Project
+
+This project is large and can feel overwhelming to grasp all at once. We’ve tried to make as many components as stable and unchanging as possible. This means that most of what you see on the screen doesn’t require a deep understanding right away—working code is best left untouched, right? 😄
+
+For the first 2–3 weeks of your internship, we strongly encourage you to focus on learning C++, especially general OOP concepts and how pointers work. Try building a simple calculator or a rock-paper-scissors app using OOP and pointers to get comfortable.
+
+Next, dive into general Unreal Engine tutorials. Remember, everything in Unreal Engine is highly decoupled—it’s not like a website or other applications where you can easily call everything through dependency injections or setters. We also recommend following some C++ tutorials in Unreal Engine and creating a small project to test things out. Once you get comfortable with the C++ side, using Blueprints will feel like a helpful tool for tying your logic together.
+
+Keep in mind that C++, OOP, and other programming patterns aren’t quite the same when developing in Unreal Engine. Also, documentation can be extremely frustrating to navigate. Because of this, we strongly advise using JetBrains Rider IDE if your RAM allows it, as it provides the best autocompletion and function documentation support. If it doesn’t, try increasing your swap file to use your SSD as temporary RAM.
+
+While this documentation isn’t perfect (we only had six months to develop, test, design, and write it!), we’ve tried to document as much as possible to help guide you through.
+
+## Why We Used mostly C++ Instead of Blueprints
+
+In short, for maintainability. Yes, C++ can be hard, complicated, and unforgiving, but once you become familiar with its inner workings, it will become both your best friend and, sometimes, your worst enemy. If you’re new to C++, take it slowly. If you’re not sure how to implement something, try building it in Blueprints first, even if it turns into a litteral of spaghetti code. When you reach that point, it’s usually a good time to start rewriting it in C++.
+
+
+
+
