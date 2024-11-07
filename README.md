@@ -51,6 +51,6 @@ nav:
   - NewDocs: NewDocs/NewFancyDocs.md
 ```
 
-## Updating the deoployed website
+## Updating the deployed website
 
 Once you're done, add your changes, commit, and push. The GitHub action will trigger, and the `gh-pages` branch will be updated with your changes (bot will deploy it as static website and push to the `gh-page` branch).
