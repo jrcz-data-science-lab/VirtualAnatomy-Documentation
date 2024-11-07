@@ -22,13 +22,14 @@ nav:
           - Anatomy Helpers: VirtualAnatomy/ExplorerLevel/AnatomyHelpers.md
           - Character: VirtualAnatomy/ExplorerLevel/Character.md
           - First Steps: VirtualAnatomy/ExplorerLevel/FirstSteps.md
-          - Mesh Selector: VirtualAnatomy/ExplorerLevel/MeshSelector.md
+          - Mesh Selector and highlighting: VirtualAnatomy/ExplorerLevel/MeshSelector.md
           - Ray Casting: VirtualAnatomy/ExplorerLevel/RayCasting.md
           - Simulation: 
             - General overview: VirtualAnatomy/ExplorerLevel/Simulation/GeneralOverview.md  
             - Blood flow simulation: VirtualAnatomy/ExplorerLevel/Simulation/BloodFlowSimulaiton.md
           - UI:
             - GeneralAproach: VirtualAnatomy/ExplorerLevel/UI/HowIsUIDone.md
+            - Side bar: VirtualAnatomy/ExplorerLevel/UI/SideBar.md
             - UI Classes:
               - SimulationButton: VirtualAnatomy/ExplorerLevel/UI/SimulationButton.md
               - Clicked on info: VirtualAnatomy/ExplorerLevel/UI/ClickedOnInfo.md

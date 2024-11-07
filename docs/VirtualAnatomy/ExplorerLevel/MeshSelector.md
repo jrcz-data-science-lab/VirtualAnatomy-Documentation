@@ -1,4 +1,4 @@
-# Mesh Selector
+# Mesh Selector and highlighting 
 
 When the user clicks on a mesh, it gets highlighted. This class is responsible for determining which actor should be highlighted and which should not.
 

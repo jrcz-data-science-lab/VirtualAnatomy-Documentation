@@ -20,18 +20,26 @@ CirculatorySystem
     │   └─ Spline
 ```
 
-This actor inherits from the CPP_BloodFlowSimulation class, allowing it to interact with the simulation manager and respond to simulation events.
+This actor inherits from the `CPP_BloodFlowSimulation` class, allowing it to interact with the simulation manager and respond to simulation events.
 
-To represent individual blood cells, we created a CPP_Cell class. This class includes a static mesh representing the blood cell, giving the class its name.
+To represent individual blood cells, we created a `CPP_Cell` class. This class includes a static mesh to represent the blood cell, which is why we named it `CPP_Cell`.
 
-We then created a Blueprint that inherits from the CPP_Cell class. For maintainability, the implementation of the blood cell’s movement along the splines is handled within this Blueprint. For additional guidance on this implementation, you can refer to [this video](https://www.youtube.com/watch?v=-V6D5WtemMI). 
+Next, we developed a Blueprint that inherits from the `CPP_Cell` class. For easier maintenance, we implemented the blood cell’s movement along splines within this Blueprint. For more information on this implementation, refer to [this video](https://www.youtube.com/watch?v=-V6D5WtemMI).
 
-### Spawning cells
-The Blueprint version of the cell is spawned into the world instead. If we were to spawn the CPP_Cell instead of the BP_Cell than logic behind moving alpng splines wpuld have to be implemented purely in CPP which would be rather painfull. To specify the blueprint version of the Blood Cell we have created a new member field in CPP_Cell that holds the type of the blueprint to spawn. This blueprint is assigned in the editor since the property is set to be EditAnywhere 
+### Spawning Cells
+In the simulation, the Blueprint version of the cell (`BP_Cell`) is spawned into the world. If we spawned `CPP_Cell` instead of `BP_Cell`, we would need to implement spline movement logic entirely in C++, which would be difficult without the help of Unreal’s timeline feature. 
 
-### Passing splines
-The cell is unaware of what spline to follow to specifi the spline inside the CPP_Bloodflow we are itterating over all of the children of the aretoes skeleal mesh since thi is where splines are located then we retriece the pointer to this spline and we 
+To specify the Blueprint version of the blood cell, we added a new member field in `CPP_Cell` that holds the type of Blueprint to spawn. This Blueprint is assigned in the editor, as the property is set to `EditAnywhere`.
 
->**POSIBLE FUTURE IMPROVEMENT:** Currently, the splines are created manually using Unreal Engine’s spline creation tool. We trace the paths of arteries and veins, looping them through the heart region to simulate blood flow. While this setup creates a convincing illusion, an improvement would be to dynamically generate splines directly from the arteries and veins meshes. However, implementing this is challenging because the meshes are constructed from arrays of vertex positions with no inherent hierarchy. This lack of structure makes it difficult to automatically generate splines that follow the natural flow paths within these complex anatomical shapes. We have explored the possibility of voxelizing the meshes into a sparse voxel octree (SVO) structure. This approach could provide a more structured representation of the arteries and veins, potentially simplifying the process of spline generation by allowing the traversal of a hierarchical, voxel-based approximation of the mesh.  
+In addition the cells are spawn once during event begin play. If we were to spawn them every time when simulation starts and despawn them when it stops, it would be much more unefficient. 
+
+### Passing Splines
+The cell itself is unaware of which spline to follow. To specify the spline in `CPP_BloodFlowSimulation`, we iterate over all the children of the arterial skeletal mesh, as this is where the splines are located. We then retrieve a pointer to the `spline componet` and pass it the cell via the `	void SetSpline(TObjectPtr<USplineComponent> spline);` function 
+
+
+
+
+> **Possible Future Improvement:** Currently, splines are created manually using Unreal Engine’s spline creation tool. We trace the paths of arteries and veins, looping them through the heart region to simulate blood flow. While this setup creates a convincing effect, an improvement would be to dynamically generate splines directly from the artery and vein meshes. However, implementing this is challenging, as these meshes are constructed from arrays of vertex positions with no inherent hierarchy. This lack of structure makes it difficult to automatically generate splines that follow the natural flow within these complex anatomical shapes. 
+>We have explored voxelizing the meshes into a sparse voxel octree (SVO) structure. This approach could offer a more structured representation of the arteries and veins, potentially simplifying the process of spline generation by enabling traversal of a hierarchical, voxel-based approximation of the mesh.
 
 
