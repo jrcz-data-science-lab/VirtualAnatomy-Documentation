@@ -20,6 +20,39 @@ By default, the actors in Picker-Mesh are hidden and only become visible if the 
 
 While this approach may cause more work for developers, it significantly improves the user experience.
 
+To better organize the scene and the entire development environment, each major component is encapsulated within a blueprint class. For instance, bones are represented in the `BP_Bones` blueprint. This blueprint inherits from the `Actor` class, making it easy to retrieve later. Within this actor, you will find a Skeletal Mesh, which represents the combined structure of the human body. The Skeletal Mesh serves as the parent for all the `StaticMeshes`, which represent individual parts of the body for pickig (e.g., bones, joints, etc.). Refer to the figure below for a visual understanding of this structure.
+
+
+<figure markdown="span">
+  ![bones and picker mesh](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/picker-mesh-and-merged-mesh.png) <figcaption>Bones and its picker meshes</figcaption>
+</figure>
+
+With this approach you are able to retrieve the picker mesh in code or inside the bluerpints by quering the all children of the skeletal mesh component.
+
+# VERY IMPORTANT
+
+Each merged part **MUST BE A SKELETAL MESH**, and each picker model **MUST BE A STATIC MESH**. This decision was made as the lesser of two evils due to the engine's class structure limitations. Specifically, it is not possible to directly retrieve a `Static Mesh Component` (as opposed to static mesh actors) from a parent element.
+
+As a result, you cannot do something like this in code:
+
+```c++
+
+//pseudo code 
+//===============
+
+AActor* actor = GetAllActorsWithTag("bones"); // get BP_Bones actor
+
+TMeshComponent mergedMesh = actor->GetAllComponets<UMeshComponent>()  // get top level components of type MeshComponent
+```
+
+You might assume that the action will retrieve all top-level components that are of type or subclass of `UMeshComponent`, but this is not the case. Instead, it retrieves **all** components from the `BP_Bones` actor, including both Skeletal Meshe Component (for rendering) and Static Mesh components for the picker.
+
+If the merged model is not a Skeletal Mesh, this could make it difficult to isolate and retrieve either the picker mesh or the merged mesh directly. For example, you would need to loop through all the components and check manually for tags like `isPicker` or `isMerged`.
+
+This limitation is why the merged mesh is set as a Skeletal Mesh and the picker mesh as a Static Mesh. By using this approach, it becomes straightforward to identify whether the retrieved component is part of the picker mesh or the merged mesh.
+
+This approach is primarily used for user interaction and for organizing the tree view. Since the tree view only displays the merged meshes, we needed a way to organize them effectively. This is the solution we have chosen. However, if you find a better approach, feel free to implement it, but please make sure to update this documentation page accordingly.
+
 # `MeshSelector.h`
 
 This class is responsible for performing the actions specified above.

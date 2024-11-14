@@ -24,6 +24,7 @@ nav:
           - First Steps: VirtualAnatomy/ExplorerLevel/FirstSteps.md
           - Mesh Selector and highlighting: VirtualAnatomy/ExplorerLevel/MeshSelector.md
           - Ray Casting: VirtualAnatomy/ExplorerLevel/RayCasting.md
+          - Adding new body parts: VirtualAnatomy/ExplorerLevel/AddingNewBodyParts.md
           - Simulation: 
             - General overview: VirtualAnatomy/ExplorerLevel/Simulation/GeneralOverview.md  
             - Blood flow simulation: VirtualAnatomy/ExplorerLevel/Simulation/BloodFlowSimulaiton.md
