@@ -50,7 +50,7 @@ To add a new part of the model, follow these steps. This guide assumes you have 
     Your configuration should look like this:
 
     <figure markdown="span">
-      ![bones and picker mesh](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/adding-new-meshes-part-3.png) <figcaption>Viewport of the new body part and its picker mesh</figcaption>
+      ![bones and picker mesh](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/adding-new-meshes-part-3.png) <figcaption>Collision presets</figcaption>
     </figure>
 
 Once you've completed these steps, you should be able to select individual parts of the model as well as the entire skeletal mesh from the sidebar of the application.
