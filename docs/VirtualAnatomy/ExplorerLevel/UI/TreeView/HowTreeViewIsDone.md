@@ -147,6 +147,7 @@ void UCPP_TreeViewChildEntryWidget::NativeOnListItemObjectSet(UObject* ListItemO
 }
 ```
 
+As seen in the implementation, both the referencing actor and the specific component are stored, allowing efficient access to both the Blueprint that contains the picker and merged meshes, as well as the pointer to the individual merged body part. This design is more efficient than repeatedly retrieving all children and helps reduce memory bandwidth usage.
 
 The logic for hiding child elements is straightforward. A key detail is that when we hide the skeletal mesh, we also disable the collision on all its child components (picker meshes) to ensure they are truly perceived as hidden. This is implemented inside the `HideAll` and `ShowAll` functions in `C++` and they are called from the Blueprint for better organizations and maintainability. 
 
@@ -158,6 +159,7 @@ void UCPP_TreeViewChildEntryWidget::Highlight()
 	AnatomyUtils::GetMeshSelector(GetWorld())->HighlightComponent(ReferencingComponent);
 }
 ```
+
 
 
 
