@@ -55,15 +55,27 @@ This approach is primarily used for user interaction and for organizing the tree
 
 # `MeshSelector.h`
 
-This class is responsible for performing the actions specified above.
+This class is responsible for highlighting mesh components that represent anatomical parts selected by the user. Additionally, it interacts with the ClickedOnInfo UI to display details about the selected anatomical part.
 
-## Public methods 
+[Further reference](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/VirtualAnatomy/ExplorerLevel/UI/ClickedOnInfo/)
+
+## Public Methods
 
 ---
 
 ### `MeshSelector()`
 
-The constructor of this class is empty as no parameters need to be passed during instantiation.
+The constructor of this class is empty, as no parameters need to be passed during instantiation.
+
+---
+
+### `void Init(UWorld* world)`
+
+**Parameters:**
+
+- `UWorld* world` - The world context that this selector will operate within.
+
+This method initializes the `MeshSelector` with the necessary world context, allowing it to interact with world-specific elements.
 
 ---
 
@@ -71,17 +83,31 @@ The constructor of this class is empty as no parameters need to be passed during
 
 **Parameters:**
 
-- `AActor* actor` - The actor that was clicked and should be highlighted.
+- `AActor* actor` - The actor to highlight when clicked.
 
-This function highlights the actor passed as the parameter and de-highlights the actor that was previously highlighted.
+**Deprecated.** This function highlights the specified actor and removes the highlight from any previously highlighted actor. It also stores the previously highlighted actor in `m_previouslySelectedActor`.
 
-Additionally, it stores the previously highlighted actor inside `m_previouslySelectedActor` for future reference.
+---
+
+### `void HighlightComponent(UMeshComponent* mesh)`
+
+**Parameters:**
+
+- `UMeshComponent* mesh` - The mesh component to highlight.
+
+Highlights the specified mesh component, adding a visual effect to indicate selection. It de-highlights any previously highlighted mesh component and updates the reference to `m_previouslySelectedMesh`.
 
 ---
 
 ### `void DeselectAllActors()`
 
-Deselets all of the actors that were hightlighted 
+**Deprecated.** Deselects all highlighted actors, removing any active visual highlights.
+
+---
+
+### `void DeselectAllComponents()`
+
+Deselects all highlighted mesh components, removing any active visual highlights.
 
 ---
 
@@ -91,25 +117,60 @@ Deselets all of the actors that were hightlighted
 
 ### `AActor* m_currentlySelectedActor`
 
-The actor that is currently highlighted. By default, this is set to `nullptr` or is `nullptr` when nothing is selected.
+A reference to the actor currently highlighted. Defaults to `nullptr` if no actor is highlighted.
 
 ---
 
 ### `AActor* m_previouslySelectedActor`
 
-The actor that was previously highlighted. By default, this is set to `nullptr` or is `nullptr` when nothing is selected.
+A reference to the previously highlighted actor. Defaults to `nullptr` if no actor was previously selected.
 
 ---
 
-## Private Methods 
+### `UMeshComponent* m_currentlySelectedMesh`
+
+Stores a reference to the currently highlighted mesh component. Defaults to `nullptr` if no mesh is highlighted.
+
+---
+
+### `UMeshComponent* m_previouslySelectedMesh`
+
+Stores a reference to the previously highlighted mesh component. Defaults to `nullptr` if no mesh was previously selected.
+
+---
+
+### `UCPP_ClickedOnInfo* m_displayedClickOnNameWidget`
+
+Reference to the ClickedOnInfo widget that displays information about the currently selected anatomical part.
+
+---
+
+### `UWorld* m_world`
+
+The world context for this selector, used to interact with in-world components.
+
+---
+
+## Private Methods
+
+---
 
 ### `void SetActorHighlightVisible(AActor* actor, bool isHighlightVisible)`
 
-**Parameters**:
+**Parameters:**
 
-- `AActor* actor` - The actor on which the highlight should be visible or hidden.
+- `AActor* actor` - The actor on which the highlight should be shown or hidden.
+- `bool isHighlightVisible` - Sets whether the highlight is visible (`true`) or hidden (`false`).
 
-- `bool isHighlightVisible` - Determines whether the highlight should be visible or hidden for this actor. `true` if the highlight should be visible, `false` otherwise.
+**Deprecated.** This helper function adjusts the `RenderCustomDepth` value for the actor to control the highlight visibility.
 
-Helper function that is setting the value `RenderCustomDepth` for the actor passed as the parameter 
+---
 
+### `void SetComponentHighlightVisible(UMeshComponent* mesh, bool isHighlightVisible)`
+
+**Parameters:**
+
+- `UMeshComponent* mesh` - The mesh component for which the highlight should be shown or hidden.
+- `bool isHighlightVisible` - Determines whether the highlight is visible (`true`) or hidden (`false`).
+
+This helper function controls the highlight visibility for the specified mesh component, using `RenderCustomDepth` to achieve the effect.
