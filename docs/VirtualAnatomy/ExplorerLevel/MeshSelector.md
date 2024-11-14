@@ -31,7 +31,7 @@ With this approach you are able to retrieve the picker mesh in code or inside th
 
 # VERY IMPORTANT
 
-Each merged part **MUST BE A SKELETAL MESH**, and each picker model **MUST BE A STATIC MESH**. This decision was made as the lesser of two evils due to the engine's class structure limitations. Specifically, it is not possible to directly retrieve a `Static Mesh Component` (as opposed to static mesh actors) from a parent element.
+Each merged part **MUST BE A SKELETAL MESH**, and each picker model **MUST BE A STATIC MESH AND CHILD OF THE SKELETAL MESH (MERGED BODY PART)**. This decision was made as the lesser of two evils due to the engine's class structure limitations. Specifically, it is not possible to directly retrieve a `Static Mesh Component` (as opposed to static mesh actors) from a parent element.
 
 As a result, you cannot do something like this in code:
 

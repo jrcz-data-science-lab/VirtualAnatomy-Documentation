@@ -4,7 +4,7 @@
 
 **UCPP_ClickedOnInfo**: 
 
-This widget is designed to display a small pop-up so that the user can see the name of the mesh they have selected. This popup is being managed by the `MeshSelector` class. 
+This widget is designed to display a small pop-up so that the user can see the name of the mesh they have selected as well as preform varius operations on the selected mesh. This popup is being managed by the `MeshSelector` class.  
 
 
 ## Public Properties 

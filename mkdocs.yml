@@ -37,6 +37,8 @@ nav:
               - SimulationButton: VirtualAnatomy/ExplorerLevel/UI/SimulationButton.md
               - Clicked on info: VirtualAnatomy/ExplorerLevel/UI/ClickedOnInfo.md
               - Simulation Island: VirtualAnatomy/ExplorerLevel/UI/SimulationIsland.md
+              - TreeViewWidget: VirtualAnatomy/ExplorerLevel/UI/TreeView.md
+          
 
       - Main Menu Level:
           - Landing Page: VirtualAnatomy/MainMenuLevel/LandingPage.md  

@@ -87,7 +87,7 @@ To specify the `UUserWidgetBluerpint` that is going to be displayed as an itme o
 
 ## Tree view entry widget 
 
-Associated classes `CPP_TreeViewEntry`, `CPP_TreeViewEntryWidget`,`WBP_TreeViewEntryWidget`
+`Associated` classes `CPP_TreeViewEntry`, `CPP_TreeViewEntryWidget`,`WBP_TreeViewEntryWidget`
 
 To style the folder entries in the tree view, we created a new class called `CPP_TreeViewEntryWidget`. This class inherits from `UUserWidget` and implements the `IUserObjectListEntry` interface. Additionally, we created a Blueprint class based on `CPP_TreeViewEntryWidget` to customize the appearance of the entries.
 
@@ -126,7 +126,7 @@ What this means in practise is that the parent a.k.a (`UCPP_TreeViewEntryWidget`
 
 ## Tree view child entry widget
 
-### Associated Classes: `CPP_TreeViewEntryChild`, `CPP_TreeViewEntryChildWidget`, `WBP_TreeViewEntryChildWidget`, `MeshSelector`
+*Associated Classes*: `CPP_TreeViewEntryChild`, `CPP_TreeViewEntryChildWidget`, `WBP_TreeViewEntryChildWidget`, `MeshSelector`
 
 As mentioned earlier, each TreeView entry contains a list view, representing the skeletal meshes that can be interacted with. To populate this list view, we created the `CPP_TreeViewEntryChild` class, which manages both the data and visual appearance of items within the `ListView`.
 
