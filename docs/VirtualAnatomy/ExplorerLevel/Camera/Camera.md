@@ -6,6 +6,7 @@
 
 This class handles camera movement and positioning in the scene. It uses a spherical coordinate system to calculate the camera’s position and orientation relative to a target point. This class is purely computational and does not represent a physical object in the world. It can only be accessed through the `UCPP_User` class.
 
+
 ### Key Features:
 - **Spherical Coordinate System**:  
   The camera’s position is calculated using polar (`Theta`), azimuthal (`Phi`), and radial (`R`) coordinates.  
@@ -223,3 +224,7 @@ Represents a full circle in radians (\(2\pi\)). Defined as `ANATOMY_PI * 2.F`.
 - The spherical coordinate system provides precise control over camera movement, allowing dynamic manipulation of angles and distance.  
 - Ensure angles passed to methods like `RotatePolar` or `RotateAzimuth` are in radians for accurate results.  
 - This class is designed to be accessed indirectly and is not meant to be placed directly in the world.  
+
+## Further reading and resources 
+
+(Great article about the orbit camera )[https://www.mbsoftworks.sk/tutorials/opengl4/026-camera-pt3-orbit-camera/]

@@ -35,22 +35,8 @@ Make sure to execute this command in the root of the repository.
 
 You should **always** add new `.md` files to the `docs` folder. You can create new folders and sub folders if necessary. 
 
-1. Open the `mkdocs.yml` file.
-2. Edit the `nav` section.
-
-For example, if you've created documentation in a new folder called `NewDocs` and your `.md` file is named `NewFancyDocs.md`, you should add the following to the `nav` field:
-
-```yml
-site_name: 3D-Anatomy-Docs
-include_sidebar: false
-site_description: 'Documentation for VirtualAnatomy'
-##...
-nav:
-  - Home: index.md
-  - About Project: about-project.md  
-  - NewDocs: NewDocs/NewFancyDocs.md
-```
+If your file is located inside the `docs` folder it will get automatically interpreted by the mk-docs framework
 
 ## Updating the deployed website
 
-Once you're done, add your changes, commit, and push. The GitHub action will trigger, and the `gh-pages` branch will be updated with your changes (bot will deploy it as static website and push to the `gh-page` branch).
+Once you're done, `add` your changes, `commit`, and `push`. The GitHub action will trigger, and the `gh-pages` branch will be updated with your changes (bot will deploy it as static website and push to the `gh-page` branch).
