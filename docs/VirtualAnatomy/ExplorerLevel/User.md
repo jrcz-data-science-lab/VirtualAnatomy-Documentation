@@ -91,7 +91,7 @@ If you visit the `BP_User` and open the viewport, you can see both the spring ar
 
 This is the invisible actor in the scene which specifies the target around which our camera orbits.
 
-This actor is moved around the model of the human body based on which part of the body was selected. See [ActorSelector]() for more details.
+This actor is moved around the model of the human body based on which part of the body was selected. See [MeshSelector](../ExplorerLevel/MeshSelection/MeshSelector.md) for more details.
 
 ----
 
@@ -271,7 +271,7 @@ We use a unique pointer to enforce ownership and prevent memory leaks. See [this
 
 Holds unique pointer to the `Mesh Selector` class
 
-The main purpose of this class is to highlihgt the objects that user has clicked on. See [4.MeshSelectoror](/3D-Anatomy-UE/ExplorerLevel/4. MeshSelector/)
+The main purpose of this class is to highlihgt the objects that user has clicked on. See [MeshSelectoror](../ExplorerLevel/MeshSelection/MeshSelector.md)
 
 ----
 

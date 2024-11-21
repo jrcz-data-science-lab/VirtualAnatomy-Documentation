@@ -3,7 +3,7 @@
 To add a new part of the model, follow these steps. This guide assumes you have already imported your picker mesh and skeletal mesh.
 
 1. **Make the Merged Model a Skeletal Mesh:**  
-   Refer to the [Animation]( /VirtualAnatomy-Documentation/VirtualAnatomy/ExplorerLevel/Animations/Animations/) chapter to learn how to create a Skeletal Mesh.
+   Refer to the [Animation](../ExplorerLevel/Animations/Animations.md) chapter to learn how to create a Skeletal Mesh.
 
 2. **Create a New Blueprint:**  
    Name it `BP_YourPartOfTheBody`.

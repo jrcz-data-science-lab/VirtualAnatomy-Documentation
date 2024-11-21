@@ -36,7 +36,7 @@ This class bridges the gap between the user interface and world interaction by r
 The class contains the following properties:
 
 - `UCPP_TreeViewEntry* Parent`: The parent of this child entry.
-- `AActor* BodyPart`: A general reference to the body part. This is a pointer to the Blueprint that holds the skeletal mesh for rendering and the static mesh for the picker. For more details, see the [Adding New Parts to the Model]( /VirtualAnatomy-Documentation/VirtualAnatomy/ExplorerLevel/Animations/AddingNewBodyParts/) section.
+- `AActor* BodyPart`: A general reference to the body part. This is a pointer to the Blueprint that holds the skeletal mesh for rendering and the static mesh for the picker. For more details, see the [Adding New Parts to the Model](../../AddingNewBodyParts.md) section.
 - `UMeshComponent* BodyPartComponent`: The mesh component it references. This could be either a skeletal or a static mesh component. We've chosen to allow you to pick either type, in case you want to add a picker mesh later.
 - `FString Name`: The name of the component.
 - `int Depth`: The depth value, used to calculate the padding of the children in the tree view.
@@ -57,7 +57,7 @@ In this class, we do the following:
 
 ### Simple Example
 
-Let’s suppose you want to add muscles. We'll assume you’ve already followed the steps in the [Adding New Parts to the Model]( /VirtualAnatomy-Documentation/VirtualAnatomy/ExplorerLevel/Animations/) chapter. To add a new entry to the tree, you need to go to the `NativePreconstruct` function and use the provided helper function to push the new entry to the array of tree entries.
+Let’s suppose you want to add muscles. We'll assume you’ve already followed the steps in the [Adding New Parts to the Model](../../Animations/Animations.md) chapter. To add a new entry to the tree, you need to go to the `NativePreconstruct` function and use the provided helper function to push the new entry to the array of tree entries.
 
 ```c++
 	TreeViewEntries.Push(CreateTreeViewEntry("Muscles", FName("Muscles")));

@@ -57,7 +57,7 @@ This approach is primarily used for user interaction and for organizing the tree
 
 This class is responsible for highlighting mesh components that represent anatomical parts selected by the user. Additionally, it interacts with the ClickedOnInfo UI to display details about the selected anatomical part.
 
-[Further reference](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/VirtualAnatomy/ExplorerLevel/UI/ClickedOnInfo/)
+[Clicked on info UI compoonent](../UI/UIClasses/ClickedOnInfo.md)
 
 ## Public Methods
 

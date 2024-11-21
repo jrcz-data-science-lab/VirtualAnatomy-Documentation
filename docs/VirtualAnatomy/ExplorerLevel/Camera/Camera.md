@@ -227,4 +227,4 @@ Represents a full circle in radians (\(2\pi\)). Defined as `ANATOMY_PI * 2.F`.
 
 ## Further reading and resources 
 
-(Great article about the orbit camera )[https://www.mbsoftworks.sk/tutorials/opengl4/026-camera-pt3-orbit-camera/]
+[Great article about the orbit camera](https://www.mbsoftworks.sk/tutorials/opengl4/026-camera-pt3-orbit-camera/)
