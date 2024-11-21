@@ -3,46 +3,46 @@ include_sidebar: false
 site_description: 'Documentation for VirtualAnatomy'
 site_author: 'JRCZ'
 site_url: https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/
-docs_dir: docs/
+docs_dir: docs
 repo_name: 'Virtual-Anatomy-Docs'
 repo_url: 'https://github.com/jrcz-data-science-lab/3D-Anatomy-Documentation'
 markdown_extensions:
   - attr_list
   - md_in_html
-nav:
-  - Home: index.md
-  - About Project: about-project.md
-  - Virtual Anatomy:
-      - Introduction: VirtualAnatomy/Introduction.md
-      - Linux Set-Up: VirtualAnatomy/Linux-set-up.md
-      - Explorer Level:
-          - Animations:
-            - General: VirtualAnatomy/ExplorerLevel/Animations/Animations.md
-            - BaseAnimationClass: VirtualAnatomy/ExplorerLevel/Animations/BaseAnimationClass.md
-          - Anatomy Helpers: VirtualAnatomy/ExplorerLevel/AnatomyHelpers.md
-          - Character: VirtualAnatomy/ExplorerLevel/Character.md
-          - First Steps: VirtualAnatomy/ExplorerLevel/FirstSteps.md
-          - Mesh Selector and highlighting: VirtualAnatomy/ExplorerLevel/MeshSelector.md
-          - Ray Casting: VirtualAnatomy/ExplorerLevel/RayCasting.md
-          - Adding new body parts: VirtualAnatomy/ExplorerLevel/AddingNewBodyParts.md
-          - Simulation: 
-            - General overview: VirtualAnatomy/ExplorerLevel/Simulation/GeneralOverview.md  
-            - Blood flow simulation: VirtualAnatomy/ExplorerLevel/Simulation/BloodFlowSimulaiton.md
-          - UI:
-            - GeneralAproach: VirtualAnatomy/ExplorerLevel/UI/HowIsUIDone.md
-            - Side bar: VirtualAnatomy/ExplorerLevel/UI/SideBar.md
-            - TreeView:
-              - How tree view is done: VirtualAnatomy/ExplorerLevel/UI/TreeView/HowTreeViewIsDone.md
-            - UI Classes:
-              - SimulationButton: VirtualAnatomy/ExplorerLevel/UI/SimulationButton.md
-              - Clicked on info: VirtualAnatomy/ExplorerLevel/UI/ClickedOnInfo.md
-              - Simulation Island: VirtualAnatomy/ExplorerLevel/UI/SimulationIsland.md
-              - TreeViewWidget: VirtualAnatomy/ExplorerLevel/UI/TreeView.md
+# nav:
+#   - Home: index.md
+#   - About Project: about-project.md
+#   - Virtual Anatomy:
+#       - Introduction: VirtualAnatomy/Introduction.md
+#       - Linux Set-Up: VirtualAnatomy/Linux-set-up.md
+#       - Explorer Level:
+#           - Animations:
+#             - General: VirtualAnatomy/ExplorerLevel/Animations/Animations.md
+#             - BaseAnimationClass: VirtualAnatomy/ExplorerLevel/Animations/BaseAnimationClass.md
+#           - Anatomy Helpers: VirtualAnatomy/ExplorerLevel/AnatomyHelpers.md
+#           - Character: VirtualAnatomy/ExplorerLevel/Character.md
+#           - First Steps: VirtualAnatomy/ExplorerLevel/FirstSteps.md
+#           - Mesh Selector and highlighting: VirtualAnatomy/ExplorerLevel/MeshSelector.md
+#           - Ray Casting: VirtualAnatomy/ExplorerLevel/RayCasting.md
+#           - Adding new body parts: VirtualAnatomy/ExplorerLevel/AddingNewBodyParts.md
+#           - Simulation: 
+#             - General overview: VirtualAnatomy/ExplorerLevel/Simulation/GeneralOverview.md  
+#             - Blood flow simulation: VirtualAnatomy/ExplorerLevel/Simulation/BloodFlowSimulaiton.md
+#           - UI:
+#             - GeneralAproach: VirtualAnatomy/ExplorerLevel/UI/HowIsUIDone.md
+#             - Side bar: VirtualAnatomy/ExplorerLevel/UI/SideBar.md
+#             - TreeView:
+#               - How tree view is done: VirtualAnatomy/ExplorerLevel/UI/TreeView/HowTreeViewIsDone.md
+#             - UI Classes:
+#               - SimulationButton: VirtualAnatomy/ExplorerLevel/UI/SimulationButton.md
+#               - Clicked on info: VirtualAnatomy/ExplorerLevel/UI/ClickedOnInfo.md
+#               - Simulation Island: VirtualAnatomy/ExplorerLevel/UI/SimulationIsland.md
+#               - TreeViewWidget: VirtualAnatomy/ExplorerLevel/UI/TreeView.md
           
 
-      - Main Menu Level:
-          - Landing Page: VirtualAnatomy/MainMenuLevel/LandingPage.md  
-theme: 
+      # - Main Menu Level:
+      #     - Landing Page: VirtualAnatomy/MainMenuLevel/LandingPage.md  
+theme:
   name: material
   palette:
   - scheme: red

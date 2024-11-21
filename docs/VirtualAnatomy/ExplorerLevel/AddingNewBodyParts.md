@@ -46,6 +46,7 @@ To add a new part of the model, follow these steps. This guide assumes you have 
     - Change the material to `M_MaterialPicker`.
     - Set the visibility to **Hidden**.
     - Set the collision preset to **Custom**.
+    - Set `ReverseCulling` to true 
 
     Your configuration should look like this:
 
