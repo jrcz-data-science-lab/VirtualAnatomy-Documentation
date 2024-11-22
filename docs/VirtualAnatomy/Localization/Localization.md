@@ -26,13 +26,13 @@ Once we have the necessary words translated, the process is simple:
 
  `save > gather text > compile text`
 
- ## Important
+ # Important
 
  For all text blocks we want to translate, we need to specify if they should be localized. For this purpose we simply open the UMG, select the text we want to localize and in the `Details` panel we check the `localize` option like so:
 
  ![Localization usage](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/umg-localization.png)
 
- ## Localization functionality
+ # Localization functionality
 
   ![Localization usage](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/localization-functionality.png)
 
