@@ -1,4 +1,4 @@
-# Introduction  
+# General overview  
 
 This section explains how the framework for sliders in the application was developed, how it works, and how you can extend it.  
 
@@ -30,11 +30,6 @@ In the editor, you can adjust the appearance of sliders and related components s
 
 The most important aspect of the framework is its reusability. Since sliders can affect various parameters in the simulation or application settings, these parameters can be configured directly in the editor during the design process. Image below ilustrates one of the sliders displayed on settings page and its corresponding `enum` that is specifing which fields to change.
 
-<figure markdown="span">
-  ![coresponding enum](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/images/slider-setting-example.png)
-   <figcaption>Simulation settings and correcponidng enum in the code </figcaption>
-</figure>
-
 > **Note:**  
 > If you find this approach overly complex, feel free to adjust it, but be sure to update this documentation accordingly.
 
@@ -44,22 +39,9 @@ The actual values that are modified by the sliders are stored in a `Struct` defi
 
 # Settings Slider  
 
-The settings slider adjusts application-related parameters such as camera zoom and movement sensitivity. It works by retrieving specific fields from the struct and updating them when the slider's UI element triggers the `OnMouseCaptureEnd` event.  
-
-### Data Retrieval Process  
-
-Since the settings slider is expected to be used primarily on the settings page, data retrieval should occur during the `OnBeginPlay` event of different levels. This is because when a user leaves the current level (e.g., to access the settings), that level gets unloaded. When the user returns, the level is reloaded, triggering the `OnBeginPlay` event again, where data can be fetched and applied.
-
-### Considerations  
-
-If the level is not refreshed, you need to manually trigger an event that updates parameters like camera rotation sensitivity and zoom sensitivity. This ensures that changes made in the settings are applied in real-time without requiring a level reload.
-
-The struct for the settings slider that holds data of different parameters looks like the code listing below. In case you want to have another settings here just simply add the new field to hold the value to change. You must not forget to also add the field that is going to hold the slider state, that is the value of the slider. 
-
 
 
 ```c++
-
 USTRUCT()
 struct FCameraSensitivitySettings
 {
@@ -85,7 +67,21 @@ struct FCameraSensitivitySettings
 }
 ```
 
-# Enum-Based Value Selection  
+
+The settings slider adjusts application-related parameters such as camera zoom and movement sensitivity(code listing above). It works by retrieving specific fields from the struct and updating them when the slider's UI element triggers the `OnMouseCaptureEnd` event.  
+
+### Data Retrieval Process  
+
+Since the settings slider is expected to be used primarily on the settings page, data retrieval should occur during the `OnBeginPlay` event of different levels. This is because when a user leaves the current level (e.g., to access the settings), that level gets unloaded. When the user returns, the level is reloaded, triggering the `OnBeginPlay` event again, where data can be fetched and applied.
+
+### Considerations  
+
+If the level is not refreshed, you need to manually trigger an event that updates parameters like camera rotation sensitivity and zoom sensitivity. This ensures that changes made in the settings are applied in real-time without requiring a level reload.
+
+The struct for the settings slider that holds data of different parameters looks like the code listing below. In case you want to have another settings here just simply add the new field to hold the value to change. You must not forget to also add the field that is going to hold the slider state, that is the value of the slider. 
+
+
+## Enum-Based Value Selection  
 
 Another crucial component of the slider architecture is the use of an `enum`, which specifies which values inside the struct should be modified.  
 
@@ -97,13 +93,6 @@ Since direct access to struct values in the Unreal Engine editor is not possible
 
 - **Enum Definition:**  
   The `enum` defines all possible parameters that a slider can modify.  
-- **Editor Integration:**  
-  The editor displays the `enum` as a dropdown list, allowing developers to choose which struct field the slider should control.  
-- **Data Binding:**  
-  When a slider event fires (e.g., `OnMouseCaptureEnd`), the framework checks the selected `enum` value and updates the corresponding field in the struct accordingly.  
-
-This setup keeps the architecture flexible and user-friendly, enabling parameter binding directly from the editor without requiring additional code modifications.
-
 ```c++
 UENUM(BlueprintType)
 enum class ESensitivityOf :uint8
@@ -114,11 +103,29 @@ enum class ESensitivityOf :uint8
 	CAMERA_ZOOM UMETA(DisplayName = "Camera zoom sensitivity"),
 };
 ``` 
+- **Editor Integration:**  
+  The editor displays the `enum` as a dropdown list, allowing developers to choose which struct field the slider should control.  
+- **Data Binding:**  
+  When a slider event fires (e.g., `OnMouseCaptureEnd`), the framework checks the selected `enum` value and retrieves the reference to the field inside the Struct that holds the data which can be changed like this . 
 
+```c++
+//UCPP_SimulationSlideBar.cpp
 
-# Enum-Driven Field Access  
+void UCPP_SettingsSlider::OnSliderMouseReleaseHandle()
+{
+	auto CurentSettingsValue = Cast<UCPP_GameInstance>(GetWorld()->GetGameInstance()) // cast game instance to our game instance
+    // sensitivy of is the value selected from editor
+		->GetCameraSensitivitySettings().GetSensitivityOf(SensitivityOf); // retrieve the ref to setting parameter
 
-Based on the specified `enum` type selected in the editor, the corresponding struct field is retrieved and modified by the slider. This functionality is implemented as a method inside the relevant struct.  
+	// update the field 
+    GameInstanceRef->GetCameraSensitivitySettings().GetSliderValueFor(SensitivityOf) = MainSlider->GetValue();
+
+	CurentSettingsValue = CurentSettingsValue * MainSlider->GetValue();
+}
+``` 
+
+This setup keeps the architecture flexible and user-friendly, enabling parameter binding directly from the editor.
+
 
 ### Example: Camera Sensitivity Settings  
 
@@ -126,35 +133,29 @@ For instance, the `FCameraSensitivitySettings` struct includes a function that u
 
 ### How It Works  
 
-1. **Enum Selection:**  
+**Enum Selection:**  
     In the editor, the developer selects an `enum` value corresponding to a specific field in the struct.  
 
-2. **Field Retrieval Method:**  
-    The selected `enum` is passed to a method within the struct.  
-   
-    The method returns a reference to the relevant field based on the `enum` value.  
+<figure markdown="span">
+  ![coresponding enum](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/images/slider-setting-example.png)
+   <figcaption>Simulation settings and correcponidng enum in the code </figcaption>
+</figure>
 
-3. **Value Update:**  
-    When the slider fires its value change event, the retrieved struct field is updated accordingly.  
-
-By centralizing this logic within the struct, the framework maintains clean and scalable code while supporting easy parameter binding from the editor.
-
+**Field Retrieval Method:**  
+The selected `enum` is passed to a method within the struct.  
+The method returns a reference to the relevant field based on the `enum` value. 
 
 ```c++
+Cast<UCPP_GameInstance>(GetWorld()->GetGameInstance()) // cast game instance to our game instance
+    // sensitivity of is filled in the UI 
+	->GetCameraSensitivitySettings().GetSensitivityOf(SensitivityOf);
+```
+   
+**Value Update:**  
+When the slider fires its value change event, the retrieved struct field is updated accordingly.  
 
-	float& GetSensitivityOf(ESensitivityOf sensitivityOf)
-	{
-		switch (sensitivityOf)
-		{
-		case ESensitivityOf::CAMERA_MOVEMENT:
-			return CameraMovementSensitivity;
-		case ESensitivityOf::CAMERA_ZOOM:
-			return CameraZoomSensitivity;
-		default:
-			UE_LOG(LogTemp, Error, TEXT("Unknown sensitivity settings, please check if your value is in ESensitivityOfEnum !"))
-			return CameraMovementSensitivity;
-		}
-	}
+```c++
+GameInstanceRef->GetCameraSensitivitySettings().GetSliderValueFor(SensitivityOf) = MainSlider->GetValue();
 ```
 
 Both structs are instantiaded inside the `CPP_GameInstance.cpp` file in the constructor through initialization list. With this approach values of the  struct stay presistant through the entire runtime of the application. Note that this applies onli for the Settigns structs.
@@ -165,3 +166,28 @@ Both structs are instantiaded inside the `CPP_GameInstance.cpp` file in the cons
 </figure>
 
 
+# Simulation Sliders  
+
+Conceptually, simulation sliders work exactly like settings sliders. The primary differences lie in how data is updated and how corresponding structs are instantiated.  
+
+The `FSimulationSlideBarsParameters` struct is initialized in the `UCPP_SimulationSettings` constructor using `new` key word, this is risky but due to the unreal engine strucutre it has to be done (its is deleted in destrucutor so it should be safe). This approach is used because the `SimulationManager` class is only valid within the `Explorer Level`. It is also assumed that all simulation-related sliders are visible only within this level.  
+
+## Handling Update of the Simulation Parameters  
+
+The parent class of `WB_SimulationSlideBar` holds a pointer to the `SimulationManager`. This class contains a delegate that is triggered whenever the slider’s value changes. Other classes can listen to this delegate as long as they maintain a reference to the `SimulationManager` class.  
+
+This setup ensures that updates to simulation parameters occur seamlessly, keeping the system modular and easy to extend.
+
+Example code:
+
+```c++
+// assign what function should get exectued once simulation parameters update
+Simulationmanager->UpdateSimulationEventDelegate.AddUObject(this, &ACPP_Cell::UpdateBloodFlowSimulation);
+```
+
+**IMPORTANT:** The delegate in the simulation manager will pass the pointer to the updated `FSimulationSlideBarsParameters` structure which *should* be accessed only inside the update function.
+Valid signature of the function that can be triggered once simulation updates can look like this
+
+```c++
+void UpdateBloodFlowSimulation(FSimulationSlideBarsParameters* updatedSimulationParameters);
+```
