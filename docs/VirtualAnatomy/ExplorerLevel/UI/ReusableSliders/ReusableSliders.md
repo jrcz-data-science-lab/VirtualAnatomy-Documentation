@@ -137,7 +137,7 @@ For instance, the `FCameraSensitivitySettings` struct includes a function that u
     In the editor, the developer selects an `enum` value corresponding to a specific field in the struct.  
 
 <figure markdown="span">
-  ![coresponding enum](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/images/slider-setting-example.png)
+  ![coresponding enum](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/slider-setting-example.png)
    <figcaption>Simulation settings and correcponidng enum in the code </figcaption>
 </figure>
 
@@ -161,7 +161,7 @@ GameInstanceRef->GetCameraSensitivitySettings().GetSliderValueFor(SensitivityOf)
 Both structs are instantiaded inside the `CPP_GameInstance.cpp` file in the constructor through initialization list. With this approach values of the  struct stay presistant through the entire runtime of the application. Note that this applies onli for the Settigns structs.
 
 <figure markdown="span">
-  ![coresponding enum](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/images/SliderArchitecture-Page-2.png)
+  ![coresponding enum](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/SliderArchitecture-Page-2.png)
    <figcaption>Simulation settings and correcponidng enum in the code </figcaption>
 </figure>
 
