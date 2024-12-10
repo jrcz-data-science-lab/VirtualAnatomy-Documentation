@@ -21,3 +21,7 @@ As mentioned, students can use this application to practice their anatomy knowle
 ## Our Goal
 
 Our goal is simple: to provide the most efficient way for teachers and students to gain knowledge about the human body and, in doing so, contribute positively to society.
+
+## Medical resources 
+
+Information about shock provided by Bas [link](../misc/Shock JRCZ 9-12-2024.pdf)

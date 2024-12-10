@@ -22,6 +22,9 @@ CirculatorySystem
 
 This actor inherits from the `CPP_BloodFlowSimulation` class, allowing it to interact with the simulation manager and respond to simulation events.
 
+
+> Following sections are depricated we have decided to use the Nanite particles to visualise th blood, I am keeping it here in case you need to know about this plese consult new page that explains how ninite is utilised 
+
 To represent individual blood cells, we created a `CPP_Cell` class. This class includes a static mesh to represent the blood cell, which is why we named it `CPP_Cell`.
 
 Next, we developed a Blueprint that inherits from the `CPP_Cell` class. For easier maintenance, we implemented the blood cell’s movement along splines within this Blueprint. For more information on this implementation, refer to [this video](https://www.youtube.com/watch?v=-V6D5WtemMI).
@@ -36,10 +39,10 @@ In addition the cells are spawn once during event begin play. If we were to spaw
 ### Passing Splines
 The cell itself is unaware of which spline to follow. To specify the spline in `CPP_BloodFlowSimulation`, we iterate over all the children of the arterial skeletal mesh, as this is where the splines are located. We then retrieve a pointer to the `spline componet` and pass it the cell via the `	void SetSpline(TObjectPtr<USplineComponent> spline);` function 
 
+> End of depricated section
 
 
-
-> **Possible Future Improvement:** Currently, splines are created manually using Unreal Engine’s spline creation tool. We trace the paths of arteries and veins, looping them through the heart region to simulate blood flow. While this setup creates a convincing effect, an improvement would be to dynamically generate splines directly from the artery and vein meshes. However, implementing this is challenging, as these meshes are constructed from arrays of vertex positions with no inherent hierarchy. This lack of structure makes it difficult to automatically generate splines that follow the natural flow within these complex anatomical shapes. 
->We have explored voxelizing the meshes into a sparse voxel octree (SVO) structure. This approach could offer a more structured representation of the arteries and veins, potentially simplifying the process of spline generation by enabling traversal of a hierarchical, voxel-based approximation of the mesh.
+ **Possible Future Improvement:** Currently, splines are created manually using Unreal Engine’s spline creation tool. We trace the paths of arteries and veins, looping them through the heart region to simulate blood flow. While this setup creates a convincing effect, an improvement would be to dynamically generate splines directly from the artery and vein meshes. However, implementing this is challenging, as these meshes are constructed from arrays of vertex positions with no inherent hierarchy. This lack of structure makes it difficult to automatically generate splines that follow the natural flow within these complex anatomical shapes. 
+ We have explored voxelizing the meshes into a sparse voxel octree (SVO) structure. This approach could offer a more structured representation of the arteries and veins, potentially simplifying the process of spline generation by enabling traversal of a hierarchical, voxel-based approximation of the mesh.
 
 
