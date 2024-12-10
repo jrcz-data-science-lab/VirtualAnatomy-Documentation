@@ -1,4 +1,4 @@
-# Clicked on info
+# `UCPP_ClickedOnInfo`
 
 ## Class Description
 
