@@ -87,11 +87,3 @@ If a specific human body animation requires modifications such as a delay or oth
 
 For more details see [Animation classs specification](/VirtualAnatomy-Documentation/VirtualAnatomy/ExplorerLevel/Animations/BaseAnimationClass/)
 
-## Class diagram 
-
-Finally to make sense of everything plase see this class diagram
-
-<figure markdown="span">
-  ![Simulation event graph](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/Simulation-Class-Diagram.png) <figcaption>Event graph of simulation</figcaption>
-</figure>
-
