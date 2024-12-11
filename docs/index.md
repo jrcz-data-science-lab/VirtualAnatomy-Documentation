@@ -27,5 +27,6 @@ Keep in mind that we tried to make this cover as much as possible but as you wil
 
 # Authors:
 
-Simon Potocnak - simon.potocnak03@gmail.com 
-Daniel Bartha - 
+[Simon Potocnak](https://github.com/wpsimon09) - simon.potocnak03@gmail.com 
+
+[Daniel Bartha](https://github.com/DanielBartha) - daniel.bartha@ymail.com
