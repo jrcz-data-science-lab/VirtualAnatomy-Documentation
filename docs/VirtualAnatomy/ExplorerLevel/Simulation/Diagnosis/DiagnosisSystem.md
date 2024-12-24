@@ -152,11 +152,16 @@ And thats it the new disseases was added and simulation parameters will be chang
 
 ## How does application know what dissease was selected ? 
 
-Good question, the anser is in the `SimulationManager` where DiagnosisList is instantiated. Once the diagnosis changes the event is registered and right diagnosis from the diagnosis registery is selected and event delegate that is dispatching the event is triggered providing the const reference to the selected diagnosis as a parameter. See diagram and example below:
+Good question! The answer lies in the `SimulationManager`, where the `DiagnosisList` is instantiated. When a diagnosis changes, an event is registered, and the appropriate diagnosis is selected from the `DiagnosisRegistry`. 
+
+Once the correct diagnosis is retrieved, an event delegate is triggered. This delegate dispatches the event, providing a const reference to the selected diagnosis as a parameter.
+
+See the diagram and example below for clarity:
+
 
 
 ```c++
-// this function is listening to the change OnDiagnosisChange event 
+// this function is listening to the OnDiagnosisChange event 
 
 void ACPP_BloodPathSystem::HandleDiagnosisChagne(UCPP_Diagnosis& selectedDiagnosis)
 {
