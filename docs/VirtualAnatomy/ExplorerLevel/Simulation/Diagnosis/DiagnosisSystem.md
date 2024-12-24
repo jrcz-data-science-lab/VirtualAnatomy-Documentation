@@ -149,3 +149,28 @@ void DiagnosisRegistery::BuildDiagnosisList()
 ```
 
 And thats it the new disseases was added and simulation parameters will be changed once the user selects this dissease
+
+## How does application know what dissease was selected ? 
+
+Good question, the anser is in the `SimulationManager` where DiagnosisList is instantiated. Once the diagnosis changes the event is registered and right diagnosis from the diagnosis registery is selected and event delegate that is dispatching the event is triggered providing the const reference to the selected diagnosis as a parameter. See diagram and example below:
+
+
+```c++
+// this function is listening to the change OnDiagnosisChange event 
+
+void ACPP_BloodPathSystem::HandleDiagnosisChagne(UCPP_Diagnosis& selectedDiagnosis)
+{
+	UE_LOG(LogTemp, Error, TEXT("Diagnosis chagned to %s"), *selectedDiagnosis.GetName());
+	HandleSimulationUpdate(selectedDiagnosis.GetSimulationParameters());
+
+	BloodParticleComponent->ReinitializeSystem();
+}
+
+```
+
+This figure ilustrates how application is handling on diagnosis chagne events 
+
+<figure markdown="span">
+  ![Diagnosis change event ](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/changin-diagnosis.drawio.png)
+  <figcaption>High level overview of diagnosis change event </figcaption>
+</figure>
