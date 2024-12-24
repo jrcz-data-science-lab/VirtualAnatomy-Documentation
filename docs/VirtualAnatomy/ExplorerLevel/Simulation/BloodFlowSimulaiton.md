@@ -23,7 +23,7 @@ CirculatorySystem
 This actor inherits from the `CPP_BloodFlowSimulation` class, allowing it to interact with the simulation manager and respond to simulation events.
 
 
-> Following sections are depricated we have decided to use the Nanite particles to visualise th blood, I am keeping it here in case you need to know about this plese consult new page that explains how ninite is utilised 
+> Following sections are depricated we have decided to use the Niagara particles to visualise the blood, I am keeping it here in case you need to know about this plese, consult new page that explains how niagara is utilised  visit [this page](docs/VirtualAnatomy/ExplorerLevel/BloodSimulation/HowBloodSimulationWorks.md)
 
 To represent individual blood cells, we created a `CPP_Cell` class. This class includes a static mesh to represent the blood cell, which is why we named it `CPP_Cell`.
 
