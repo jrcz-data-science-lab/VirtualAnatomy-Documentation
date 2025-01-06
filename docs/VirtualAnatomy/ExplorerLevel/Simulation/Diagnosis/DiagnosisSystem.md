@@ -54,7 +54,7 @@ enum class EDiagnosisType: uint8
 
 <figure markdown="span">
   ![Blood Particle System](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/simulationManagerClassDiagram.png)
-  <figcaption>User-Defined Parameters in the Niagara System Editor</figcaption>
+  <figcaption>Class diagram showing how diagnosis registery and diagnosis builder are connected with simulation manager</figcaption>
 </figure>
 
 ## Adding new diagnosis
@@ -133,9 +133,9 @@ void DiagnosisRegistery::BuildDiagnosisList()
 	// DEATH
 	//================================
   FSimulationSlideBarsParameters deathParameters;
-	hyperVolumetricShockParameters.Speed = 0;
-	hyperVolumetricShockParameters.BloodThickness = 0;
-	hyperVolumetricShockParameters.BeatsPerMinute = 0;
+	deathParameters.Speed = 0;
+	deathParameters.BloodThickness = 0;
+	deathParameters.BeatsPerMinute = 0;
 	// we overwirte new diagnosis 
   newDiagnosis =
 		DiagnosisBuilder.SetName("Death")
