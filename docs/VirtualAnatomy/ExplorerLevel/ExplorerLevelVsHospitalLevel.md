@@ -1,6 +1,6 @@
 # Explorer Level vs. Hospital Level
 
-You might be wondering what the difference is between the **Hospital Level** and the **Explorer Level** (also abbreviated as `explorer-level-no-material`). Let’s break it down.
+You might be wondering what the difference is between the **Hospital Level** and the **Explorer Level** (also abbreviated as `explorer-level-no-enviroment`). Let’s break it down.
 
 ## Hospital Level
 The **Hospital Level** is designed primarily for presenting the application to clients. As such, it includes advanced and resource-intensive features like:
