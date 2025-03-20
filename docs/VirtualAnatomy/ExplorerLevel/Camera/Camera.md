@@ -19,25 +19,35 @@ This class handles camera movement and positioning in the scene. It uses a spher
 
 ## Definitions
 
-### `ANATOM_PI` 
+### `ANATOM_PI` 
 
-**Description**
+**Description**:
 
-Unreal Engine`s definition of PI is depricated so we fuck em. This makes calculating stuff much easier
+Defines a custom PI value to replace Unreal Engine’s deprecated PI definition. This ensures more reliable and consistent calculations within the application.
 
 ----
 
 ## Public Methods
 
-### `void Init(FVector LookAtPos, float maxRadius = 40.0f, float minRadius = 1.0f)`
+### `void Init(FVector LookAtPos, float maxRadius = 700.0f, float minRadius = 1.0f)`
 
 **Description**:  
 Initializes the orbit camera controls, defining the target point to orbit around and setting the radius limits.  
 
 **Parameters**:  
 - `LookAtPos`: The position in the world around which the camera should orbit.  
-- `maxRadius`: The maximum distance the camera can be from the target. Default is `40.0f`.  
+- `maxRadius`: The maximum distance the camera can be from the target. Default is `700.0f`.  
 - `minRadius`: The minimum distance the camera can be from the target. Default is `1.0f`.  
+
+---
+
+### `void SetThresholds(FVector MinThreshold, FVector MaxThreshold)`
+
+**Description**:  
+
+
+**Parameters**:  
+-
 
 ---
 
@@ -138,8 +148,8 @@ A reference to the `FRotator` representing the camera’s rotation.
 **Description**:  
 Recalculates the camera’s position in Cartesian coordinates based on the spherical coordinates:  
 
-x = R * Cos(Phi) * Cos(Theta);
-y = R * Cos(Phi) * Sin(Theta);
+x = R * Cos(Phi) * Cos(Theta); \
+y = R * Cos(Phi) * Sin(Theta); \
 z = R * Sin(Phi); 
 
 **Returns**:  
@@ -216,6 +226,34 @@ The polar angle (`Theta`) representing vertical rotation.
 
 **Description**:  
 Represents a full circle in radians (\(2\pi\)). Defined as `ANATOMY_PI * 2.F`.  
+
+---
+
+### `float MinThresholdX`
+
+**Description**:  
+The minimum allowed threshold value for the X-axis. This defines the lower boundary beyond which values are considered out of range.
+
+---
+
+### `float MaxThresholdX`
+
+**Description**:  
+The maximum allowed threshold value for the X-axis. This defines the upper boundary beyond which values are considered out of range.
+
+---
+
+### `float MinThresholdZ`
+
+**Description**:  
+The minimum allowed threshold value for the Z-axis. This defines the lower boundary beyond which values are considered out of range.
+
+---
+
+### `float MaxThresholdZ`
+
+**Description**:  
+The maximum allowed threshold value for the Z-axis. This defines the upper boundary beyond which values are considered out of range.
 
 ---
 
