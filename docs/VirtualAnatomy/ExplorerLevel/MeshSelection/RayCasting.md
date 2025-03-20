@@ -6,10 +6,9 @@
 As mentioned, we have chosen ray casting as the primary method for selecting which objects the user clicks on.
 
 The way it works is that when the user clicks on the screen, we receive coordinates about where the mouse was clicked (in screen space). We then transform this mouse location to world space and calculate the direction from our character to the point where the mouse clicked. This direction is normalized, meaning it has a length of 1.
+After that, we specify a ray length parameter to determine where the ray should end and then cast the ray from the character’s position towards the calculated endpoint.
 
-Next, we specify a ray length parameter to determine where the ray should end.
-
-After that, we shoot the ray from the position of our character towards the calculated end of the ray.
+Previously, the system used basic ray-object collision detection techniques, but we have now implemented the Möller-Trumbore algorithm for more precise intersection testing with triangles in the scene. This algorithm allows efficient ray-triangle intersection detection, making it particularly useful for accurate selection of 3D models and surfaces.
 
 All of these calculations are performed once the user presses the left mouse button.
 
@@ -25,13 +24,11 @@ The main responsibility of the `RayCaster` class is to trace the actual rays thr
 
 ----
 
-### `RayCaster(UWorld* world = nullptr)`
+### `RayCaster()`
 
-**Parameters:**
+Constructor initializing the m_world and m_currentHitComponent to nullptr.
 
-- `UWorld* world ` - world to use for ray casting  
-
-The constructor takes a world as a parameter, which can be `nullptr` by default since the "world" does not exist during construction time.
+`m_world` is set initially to `nullptr` since the "world" does not exist during construction time.
 
 However, you can construct this class in other places besides constructors.
 
@@ -76,17 +73,23 @@ Therefore, before each intersection test, you must ensure that the world is set 
 
 ----
 
-### `bool TraceLine(FVector start, FVector rayDirection, float rayLength = 1000)`
+### `bool TraceLine(FVector start, FVector rayDirection, float rayLength, FVector& outHitPoint, FVector& outHitNormal, int32& outTriangleIndex, float& outU, float& outV)`
+
+Performs a precise ray trace, detecting triangle-level intersections on static meshes.
 
 **Parameters:**
 
-- `FVector start` - The starting point of the ray in world space.
-- `FVector rayDirection` - The direction in which the ray will travel.
-- `float rayLength` - The length of the ray, default value is 1000.
+- `start`- the starting point of the ray
+- `rayDirection`- the direction of the ray
+- `rayLength`- the length of the ray
+- `outHitPoint`-  stores the location where the ray hits
+- `outHitNormal`- stores the normal of the hit surface
+- `outTriangleIndex`- stores the index of the hit triangle (-1 if no triangle was hit)
+- `outU, outV`- Barycentric coordinates of the hit point
 
 **Returns:**
 
-- `True` if a hit was detected.
+- `True` if an intersection is found.
 - `False` otherwise.
 
 This function uses the `LineTraceSingleByChannel` method from the `UWorld` class to trace the provided ray through the world. By default, it uses the **Visible** channel for intersection testing, meaning only objects that are visible within the scene will be tested for intersection.
@@ -94,6 +97,63 @@ This function uses the `LineTraceSingleByChannel` method from the `UWorld` class
 If a hit is detected, the actor that caused the intersection will be stored in the `m_currentHitActor`.
 
 Lastly, all actors that were added via `AddIngoredActor` method will be ignored
+
+---
+
+### `UMeshComponent* GetCurrentHitComponent() const`
+
+Returns the mesh component that was hit by the last raycast.
+
+
+## Private methods
+
+---
+
+### `bool RayTriangleIntersect(const FVector& rayOrigin, const FVector& rayDirection, const FVector& v0, const FVector& v1, const FVector& v2, float& outDistance, float& outU, float& outV, FVector& outNormal)`
+
+Uses the Möller-Trumbore algorithm to determine if a ray intersects a specific triangle in a mesh.
+
+**Parameters:**
+- `rayOrigin (FVector)`-  the starting point of the ray.
+- `rayDirection (FVector)`- the normalized direction vector of the ray.
+- `v0 (FVector)`- the first vertex of the triangle.
+- `v1 (FVector)`- the second vertex of the triangle.
+- `v2 (FVector)`- the third vertex of the triangle.
+- `outDistance (float)`- the distance from the ray origin to the intersection point (if any).
+- `outU (float)`- the barycentric coordinate U of the intersection point.
+- `outV (float)`- the barycentric coordinate V of the intersection point.
+- `outNormal (FVector)`- the normal of the intersected triangle.
+
+**Returns:**
+- `true` if the ray intersects the triangle.
+- `false` otherwise.
+---
+
+### `bool GetTriangleVertices(UStaticMeshComponent* staticMeshComp, int32 triangleIndex, FVector& outV0, FVector& outV1, FVector& outV2)`
+
+Retrieves the world-space vertices of a given triangle from a static mesh.
+
+**Parameters:**
+- `staticMeshComp (UStaticMeshComponent)`- the static mesh component from which to retrieve triangle data.
+- `triangleIndex (int32)`- the index of the triangle within the mesh.
+- `outV0 (FVector)`- the first vertex of the triangle in world space.
+- `outV1 (FVector)`- the second vertex of the triangle in world space.
+- `outV2 (FVector)`- the third vertex of the triangle in world space.
+
+**Returns:**
+- `true` if the triangle vertices were successfully retrieved.
+- `false` otherwise.
+
+---
+
+### `void DrawOBB(UMeshComponent* meshComponent, float duration = 2.0f, float thickness = 2.0f)`
+
+Draws the Oriented Bounding Box (OBB) for debugging purposes.
+
+**Parameters:**
+- `meshComponent (UMeshComponent)`- the mesh component to visualize.
+- `duration (float, optional)`- the duration (in seconds) for which the debug box remains visible. *(Default: 2.0s)*
+- `thickness (float, optional)`- the line thickness of the debug box. *(Default: 2.0)*
 
 ## Private members
 
@@ -129,5 +189,21 @@ World in which the ray casting and intersection testing will take place
 
 Actor that was hit by the constructed ray. This is `nullptr` if no actor was hit.
 
+---
 
+### `int32 m_lastHitTriangleIndex`
+
+Index of the last hit triangle in the static mesh.
+
+---
+
+### `FVector m_lastHitPoint`
+
+World-space position of the last successful hit.
+
+---
+
+### `FVector m_lastHitNormal`
+
+Normal of the last successfully hit triangle.
 

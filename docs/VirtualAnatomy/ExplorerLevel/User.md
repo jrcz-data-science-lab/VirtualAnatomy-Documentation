@@ -60,7 +60,7 @@ The camera and spring arm are created and added to the root component of the cha
 
 ```c++
     //for spring arm it is named camera boom as most of the Unreal Engine comunty gives this name to it 
-	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("Camera Boom"));
+    CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("Camera Boom"));
     
     //add to the root of the player 
     CameraBoom->SetupAttachment(RootComponent);
@@ -69,9 +69,8 @@ The camera and spring arm are created and added to the root component of the cha
 The camera is created in similuar manner and is added as a **child** of `CameraBoom`
 
 ```c++
-	MainCamera =  CreateDefaultSubobject<UCameraComponent>(TEXT("Main camera"));
-	MainCamera->SetupAttachment(CameraBoom,USpringArmComponent::SocketName);
-
+    MainCamera =  CreateDefaultSubobject<UCameraComponent>(TEXT("Main camera"));
+    MainCamera->SetupAttachment(CameraBoom,USpringArmComponent::SocketName);
 ```
 
 If you visit the `BP_User` and open the viewport, you can see both the spring arm and camera there.
@@ -81,7 +80,7 @@ If you visit the `BP_User` and open the viewport, you can see both the spring ar
 ![camera and user in view port](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/camera-and-spring-arm-in-view-port.png)
 
 
-## Public fiels 
+## Public fiels 
 
 ----
 
@@ -119,7 +118,6 @@ This is a function that is inherited from the `ACharacter`. It is overridden so 
 For example, if you want the user to start spinning once the game starts, you would put it there.
 
 Here we set up our default `TargetActor` and `RayCaster`, since both of them require access to the `World`, and the `World` is not accessible during construction time (e.g., in the constructor).
-
 
 -----
 
@@ -287,7 +285,7 @@ Rotates the character around the `TargetActor` this method is being called insid
 ----
 
 
-### `void ZoomToTheActor(const float& LookInput)`
+### `void ZoomToTheActor(const float& LookInput)`
 
 **Parameters:**
 
