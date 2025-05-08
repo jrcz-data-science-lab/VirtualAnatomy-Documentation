@@ -11,7 +11,7 @@ markdown_extensions:
   - md_in_html
 
 
-copyright: <h3><i>© 2024 Joint Research Center Zeeland. All Rights Reserved.
+copyright: <h3><i>© 2024-25 Joint Research Center Zeeland. All Rights Reserved.
 
 theme:
   name: material
