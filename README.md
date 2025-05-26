@@ -1,7 +1,5 @@
 # Virtual Anatomy Documentation
-Documentation created using MkDocs.
-
-[Link](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/)
+Documentation for the [Virtual Anatomy project](https://github.com/jrcz-data-science-lab/Virtual-Anatomy-UE) created on MkDocs.
 
 ## Branches 
 - **`main`**: Contains the main content of the documentation.
@@ -9,7 +7,7 @@ Documentation created using MkDocs.
 
 ## Installation 
 
-Ensure that you have `pip` and `python` installed.
+First of all, ensure that you have `pip` and `python` packages installed.
 
 Then, run the following command to install MkDocs:
 
@@ -17,26 +15,34 @@ Then, run the following command to install MkDocs:
 pip install mkdocs
 ```
 
-We use material theme and so should you ;), install it using following.
+The material theme is used within this documentation. For the best UI experience install it using the following command:
 
 ```bash
 pip install mkdocs-material
 ```
 
-Afterward, serve the documentation locally by running:
+Afterward, you can serve the documentation locally by running:
 
 ```bash
 mkdocs serve
 ```
 
-Make sure to execute this command in the root of the repository.
+**Make sure to execute this command in the root of the repository.**
 
 ## Adding Pages 
 
 You should **always** add new `.md` files to the `docs` folder. You can create new folders and sub folders if necessary. 
 
-If your file is located inside the `docs` folder it will get automatically interpreted by the mk-docs framework
+If your file is located inside the `docs` folder it will get automatically interpreted by the mk-docs framework.
 
 ## Updating the deployed website
 
-Once you're done, `add` your changes, `commit`, and `push`. The GitHub action will trigger, and the `gh-pages` branch will be updated with your changes (bot will deploy it as static website and push to the `gh-page` branch).
+Once you are done with (part of) your documentation, `add` your changes, `commit`, and `push` them to `main` branch. The GitHub action will trigger, and the `gh-pages` branch will be updated with your changes (bot will deploy it as static website and push to the `gh-page` branch).
+
+## Authors/Contributors
+
+[Simon Potocnak](https://github.com/wpsimon09),
+[Daniel Bartha](https://github.com/DanielBartha),
+[Kristers Gruzins](https://github.com/animepuika),
+[Bartosz Adamczyk](https://github.com/Bartan02),
+[Mārtiņš Greizis](https://github.com/MGreizis)
