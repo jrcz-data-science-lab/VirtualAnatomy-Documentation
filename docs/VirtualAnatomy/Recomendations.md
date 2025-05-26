@@ -1,3 +1,7 @@
+---
+weight: 1
+---
+
 # Recomendations
 
 This seciton covers some recomendations we have for you. If you find this taken out of context, it is. I have written this to my porfolio and i am putting it here for you so that you have some stepping stones while starting this project and to know, what should you focuse on. I hope i have covered most of the aspects that needs to be done. Keep in mind that this is only my (Simon's) recomendations. Daniel will hopefuly have his own paragraph later on. 

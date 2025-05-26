@@ -9,10 +9,11 @@ Documentation for the [Virtual Anatomy project](https://github.com/jrcz-data-sci
 
 First of all, ensure that you have `pip` and `python` packages installed.
 
-Then, run the following command to install MkDocs:
+Then, run the following command to install MkDocs (and its plugin, necessary for appropriate display of the content):
 
 ```bash
 pip install mkdocs
+pip install mkdocs-nav-weight
 ```
 
 The material theme is used within this documentation. For the best UI experience install it using the following command:
@@ -38,6 +39,9 @@ If your file is located inside the `docs` folder it will get automatically inter
 ## Updating the deployed website
 
 Once you are done with (part of) your documentation, `add` your changes, `commit`, and `push` them to `main` branch. The GitHub action will trigger, and the `gh-pages` branch will be updated with your changes (bot will deploy it as static website and push to the `gh-page` branch).
+
+## Additional plugins for MkDocs
+- **`mkdocs-nav-weight`**: plugin that enables to organize sequence of mkdocs chapters/pages on the side navigation menu. ([Link](https://github.com/shu307/mkdocs-nav-weight?tab=readme-ov-file))
 
 ## Authors/Contributors
 
