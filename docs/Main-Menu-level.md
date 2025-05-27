@@ -1,4 +1,6 @@
-# Landing Page
+# Main Menu level
+
+## Landing Page
 
 For this part of the documentation, we will provide a brief overview of the design phases of the UI implementation for the Landing Page, as well as choices made along the way and how components function.
 
@@ -13,7 +15,7 @@ In the following example, note that the "Explorer Button" is anchored to the cen
  (images/anchor-elements-example.png)
 
 
-# UI Structure and Resources
+## UI Structure and Resources
 
 All UI elements besides the Level components are kept in the UI directory.
 
@@ -23,7 +25,7 @@ In order to match the Figma design, custom fonts are used which can be found in 
 
 A new directory for assets was created, named "Assets". This contains general assets such as design elements, as well as button assets acting as icons.
 
-# Reusable Buttons
+## Reusable Buttons
 
 For the sake of efficiency reusable buttons have been created.
 

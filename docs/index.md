@@ -1,6 +1,10 @@
-# Welcome
+# Documentation intro
 
-Hello, welcome to the documentation for the 3D-Anatomy-Project built by [JRCZ Data Science Lab](https://jrcz.nl/en/data-science-lab.html)
+!!! Warning
+    
+    The documentation is undergoing significant development and modifications, and this will continue until at most July 6, 2025. As a result, it may be difficult to follow its content at the moment. Apologies for any inconvenience.
+
+Welcome to the documentation for the 3D-Anatomy-Project built by [JRCZ Data Science Lab](https://jrcz.nl/en/data-science-lab.html)
 
 ## General overview
 
@@ -35,16 +39,8 @@ While this documentation isn’t perfect (we only had six months to develop, tes
 
 In short, for maintainability. Yes, C++ can be hard, complicated, and unforgiving, but once you become familiar with its inner workings, it will become both your best friend and, sometimes, your worst enemy. If you’re new to C++, take it slowly. If you’re not sure how to implement something, try building it in Blueprints first, even if it turns into a litteral of spaghetti code. When you reach that point, it’s usually a good time to start rewriting it in C++.
 
-
-
 ## Structure of this documentation
 
 This documentation is mainly focused on the Unreal Engine application but in the future, we plan to expand it to other projects as well.
 
 Keep in mind that we tried to make this cover as much as possible but as you will soon understand, it is quite difficult to handle all the HZ shenanigans, develop new features, and document it. :)
-
-# Authors:
-
-[Simon Potocnak](https://github.com/wpsimon09) - simon.potocnak03@gmail.com 
-
-[Daniel Bartha](https://github.com/DanielBartha) - daniel.bartha@ymail.com

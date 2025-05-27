@@ -1,20 +1,23 @@
-site_name: Virtual Anatomy docs 
+site_name: Virtual Anatomy documentation
 include_sidebar: false
-site_description: 'Documentation for VirtualAnatomy'
+site_description: 'Documentation for the Virtual Anatomy project'
 site_author: 'JRCZ'
 site_url: https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/
 docs_dir: docs
-repo_name: 'Virtual-Anatomy-Docs'
-repo_url: 'https://github.com/jrcz-data-science-lab/3D-Anatomy-Documentation'
+repo_name: 'Virtual-Anatomy-UE'
+repo_url: 'https://github.com/jrcz-data-science-lab/Virtual-Anatomy-UE'
 markdown_extensions:
   - attr_list
   - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 plugins:
   - search
   - mkdocs-nav-weight
 
-copyright: <h3><i>© 2024-25 Joint Research Center Zeeland. All Rights Reserved.
+copyright: <h3><i>© 2025 Joint Research Center Zeeland. All Rights Reserved.
 
 theme:
   name: material

@@ -1,4 +1,8 @@
-# About the Project
+---
+weight: -3
+---
+
+# About the project
 
 The project is designed for nursing students at HZ University of Applied Sciences, whose nursing department is located in Vlissingen.
 

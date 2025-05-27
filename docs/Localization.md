@@ -1,3 +1,7 @@
+---
+weight: 1
+---
+
 # Localization
 
 The localization feature of the application was done through Unreal Engine's integrated localization. Here we will walk you through the process and how to update localization if needed.

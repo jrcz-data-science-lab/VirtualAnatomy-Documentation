@@ -1,4 +1,32 @@
-This guide will show you how to install unreal engine, compile required extension and get you up and running with the project
+---
+weight: -1
+---
+
+# Setting up the project
+To begin development of this application, you need [Unreal Engine](https://www.unrealengine.com/en-US) at least version 5.5, which can be found in the [Epic Games Launcher](https://store.epicgames.com/en-US/download).
+
+## Windows
+
+-----------------
+
+For Windows, you also need [Visual Studio](https://visualstudio.microsoft.com) with the following workload items added:
+
+- Game Development with C++
+- .NET SDK (can be installed by enabling .NET desktop development)
+
+Once you have everything set up, you can launch the project by opening the `ThreeDAnatomy.uproject` file with Unreal Engine.
+
+To add the necessary files to open the project with Visual Studio, run `Tools > Generate Visual Studio Project`. Then, open the project in Visual Studio by opening the generated `ThreeDAnatomy.sln` file.
+
+## Mac OS
+
+----------------
+
+For Mac OS install [Rider](https://www.jetbrains.com/rider/), and launch the project by opening the `ThreeDAnatomy.uproject` with Rider.
+
+## Linux
+
+-----------------
 
 ### Getting unreal engine
 We have to compile unreal engine from source-code in order to use necessary plugins 
@@ -42,7 +70,7 @@ This takes around 2 hours so, you only have to wait
  ./UnrealEditor
 ```
 
-## Getting Jet Brains Rider
+### Getting Jet Brains Rider
 
 1. Download Jet Brains rider from [this link](https://www.jetbrains.com/rider/download/#section=linux)  now go the the directory where `.tar.gz` file downloaded and execute following command 
 
@@ -61,7 +89,7 @@ cd ./opt/JetBrains Rider-2024.2.3 #can be different version
 
 This will open your The jet brains rider, feel free to create desktop shortcut if you want from **Tools -> Create Desktop Entry**
 
-## Compiling plugins 
+### Compiling plugins 
 
 1. Download the epic assets manager from the Flat hub
 
@@ -119,7 +147,7 @@ In case of any issues of compiling the plugin refer to [this](https://youtu.be/G
 
 If you can not start your unreal engine after you have done this or getting error that the some library is missing, you unfortunately must remove the engine and recompile it from scratch.
 
-## Running the project 
+### Running the project 
 
 Now we can finally get to the project we are supposed to be running. Clone the project from the organisation's  repository.
 
