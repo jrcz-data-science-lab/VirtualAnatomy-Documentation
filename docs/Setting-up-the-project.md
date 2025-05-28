@@ -3,30 +3,32 @@ weight: -1
 ---
 
 # Setting up the project
-To begin development of this application, you need [Unreal Engine](https://www.unrealengine.com/en-US) at least version 5.5, which can be found in the [Epic Games Launcher](https://store.epicgames.com/en-US/download).
+To begin development of this application, you need to retrieve Virtual Anatomy project from the [GitHub repository](https://github.com/jrcz-data-science-lab/Virtual-Anatomy-UE) and download [Unreal Engine](https://www.unrealengine.com/en-US) (at least version 5.5), which can be found in the [Epic Games Launcher](https://store.epicgames.com/en-US/download).
+
+!!! Note 
+
+    If you use 'git clone' in order to retrieve this project from GitHub, we advise you to increase git buffer size beforehand so that the clone process is succesful:
+
+    git config --global http.postBuffer 524288000
+
+    (In this case it is 500MB buffer; adjust as needed, but this value should work in this case)
 
 ## Windows
 
------------------
-
-For Windows, you also need [Visual Studio](https://visualstudio.microsoft.com) with the following workload items added:
+For Windows, you will also need [Visual Studio](https://visualstudio.microsoft.com) with the following workload items added:
 
 - Game Development with C++
 - .NET SDK (can be installed by enabling .NET desktop development)
 
-Once you have everything set up, you can launch the project by opening the `ThreeDAnatomy.uproject` file with Unreal Engine.
+Once you have everything set up, you can launch the project by opening the `VirtualAnatomy.uproject` file with Unreal Engine.
 
-To add the necessary files to open the project with Visual Studio, run `Tools > Generate Visual Studio Project`. Then, open the project in Visual Studio by opening the generated `ThreeDAnatomy.sln` file.
+To add the necessary files to open the project with Visual Studio, run `Tools > Generate Visual Studio Project`. Then, open the project in Visual Studio by opening the generated `VirtualAnatomy.sln` file.
 
-## Mac OS
+## MacOS
 
-----------------
-
-For Mac OS install [Rider](https://www.jetbrains.com/rider/), and launch the project by opening the `ThreeDAnatomy.uproject` with Rider.
+For macOS install [Rider](https://www.jetbrains.com/rider/), and launch the project by opening the `VirtualAnatomy.uproject` with Rider, and... that's it?
 
 ## Linux
-
------------------
 
 ### Getting unreal engine
 We have to compile unreal engine from source-code in order to use necessary plugins 
@@ -99,8 +101,8 @@ flatpak run io.github.achetagemes.epic_asset_manager
 
 2. Open the epic assets manager and enter your epic login info.
 3. Open the market place in bottom left corner of the application 
-4. Search for the `VaRest` plugin and Download it, it should be included in `~/Document/Epic Vault/VaRestPlugin_5.4`
-5. Go to the `VaRestPlugin_5.4/data/Engine/Plugins/Marketplace/VaRestPlugin`
+4. Search for the `VaRest` plugin and Download it, it should be included in `~/Document/Epic Vault/VaRestPlugin_5.5`
+5. Go to the `VaRestPlugin_5.5/data/Engine/Plugins/Marketplace/VaRestPlugin`
 6. Open file `VaRest.uplugin` in any text editor and add `"Linux"` to the `PlatformAllowList`, if in the future plugins there is no modules add it there, this one should have it though
 ```txt
 "Modules": [
@@ -133,7 +135,7 @@ cp UnrealEngin ./UnrealEngine-cpy -rrm
 ```shell
 cd ~/Software/UnrealEngine-cpy/Engine/Build/BatchFiles
 
-./RunUAT.sh BuildPlugin -Plugin="/home/name/Documents/EpicVault/VaRestPlugin_5.4/data/Engine/Plugins/Marke
+./RunUAT.sh BuildPlugin -Plugin="/home/name/Documents/EpicVault/VaRestPlugin_5.5/data/Engine/Plugins/Marke
 tplace/VaRestPlugin/VaRest.uplugin" -Package="/home/name/Documents/EpicVault/VaRestPlugin_5-build" -TargetPlatforms=Linux
 
 # package is the directory where you want the compiled plugin to be in
@@ -161,7 +163,7 @@ Now open the rider use it to open the file called  `ThreeDAnatomy.uproject` if y
 Add another line with following content
 
 ```txt
-UE_5.4=/home/wpsimon09/Software/UnrealEngine
+UE_5.5=/home/wpsimon09/Software/UnrealEngine
 ```
 
 Now open the `ThreeDAnatomy.uproject` and change the `"EngineAssociation"` key to have the value of `5.4` 
@@ -169,7 +171,7 @@ Now open the `ThreeDAnatomy.uproject` and change the `"EngineAssociation"` key t
 ```text
 {
         "FileVersion": 3,
-        "EngineAssociation": "5.4",
+        "EngineAssociation": "5.5",
         "Category": "",
         "Description": "",
 //other stuff

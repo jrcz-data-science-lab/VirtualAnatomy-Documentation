@@ -4,43 +4,33 @@
     
     The documentation is undergoing significant development and modifications, and this will continue until at most July 6, 2025. As a result, it may be difficult to follow its content at the moment. Apologies for any inconvenience.
 
-Welcome to the documentation for the 3D-Anatomy-Project built by [JRCZ Data Science Lab](https://jrcz.nl/en/data-science-lab.html)
+Welcome to the documentation for the Unreal Engine–based Virtual Anatomy application built by [JRCZ Data Science Lab](https://jrcz.nl/en/data-science-lab.html).
+This documentation aims to help you navigate the codebase, understand the system’s architecture, and get up to speed with development and deployment processes.
 
 ## General overview
 
 The project itself is divided into several repositories:
 
-- 3D Unreal Engine application [GitHub](https://github.com/jrcz-data-science-lab/Unreal-Engine-3D-Anatomy)
-    - This project is the meat of the whole thing, it contains the Unreal Engine project that can be loaded into UE5.
-
-- Quiz, Django web application [GitHub](https://github.com/jrcz-data-science-lab/digital_anatomy_quiz)
-    - Quiz creation web application, teachers are creating quizzes here that are retrieved in the UE application.
-
-- Frontend for model tagging, Django web application [GitHub](https://github.com/jrcz-data-science-lab/anatomy_web)
-    - Since different years of the nursing study need to see different parts of the anatomy, teachers can configure this through this website.
-
+- Unreal Engine's Virtual Anatomy application [GitHub](https://github.com/jrcz-data-science-lab/Unreal-Engine-3D-Anatomy)
+    - It is core of the whole project. This repository contains an Unreal Engine project that can be loaded into UE5.
 - Python script for importing the Blender models to the Unreal Engine [GitHub](https://github.com/jrcz-data-science-lab/blender-scripts)
 - Python script for generating JSON files that can be loaded in the Model tagging application [GitHub](https://github.com/jrcz-data-science-lab/Anatomy-blender-auto-prepare)     
 - This documentation [GitHub](https://github.com/jrcz-data-science-lab/3D-Anatomy-Documentation)
 
-## How to Approach This Giant Project
+## How to approach this (large) project?
 
-This project is large and can feel overwhelming to grasp all at once. We’ve tried to make as many components as stable and unchanging as possible. This means that most of what you see on the screen doesn’t require a deep understanding right away—working code is best left untouched, right? 😄
+This project is large and can feel overwhelming to grasp everything at once. We all have tried to make as many components as stable and unchanging as possible. This means that most of what you see on the screen does not require a deep understanding right away—working code is best left untouched. 😄
 
-For the first 2–3 weeks of your internship, we strongly encourage you to focus on learning C++, especially general OOP concepts and how pointers work. Try building a simple calculator or a rock-paper-scissors app using OOP and pointers to get comfortable.
+If you are (completely or to some extent) not familiar with C++, we strongly encourage you to focus on learning this programming language, especially general OOP concepts and how pointers work, for the first 1–3 week(s) of your internship. Try building for example a simple calculator or a rock-paper-scissors app using OOP and pointers to get more comfortable with C++.
 
-Next, dive into general Unreal Engine tutorials. Remember, everything in Unreal Engine is highly decoupled—it’s not like a website or other applications where you can easily call everything through dependency injections or setters. We also recommend following some C++ tutorials in Unreal Engine and creating a small project to test things out. Once you get comfortable with the C++ side, using Blueprints will feel like a helpful tool for tying your logic together.
+Next, dive into general Unreal Engine tutorials. Remember, everything in Unreal Engine is highly decoupled — it is not like a website or other applications where you can easily call everything through dependency injections or setters. We also recommend following some C++ tutorials in Unreal Engine and creating a small project to test things out. Once you get comfortable with the C++ side, using Blueprints will feel like a helpful tool for tying your logic together.
 
-Keep in mind that C++, OOP, and other programming patterns aren’t quite the same when developing in Unreal Engine. Also, documentation can be extremely frustrating to navigate. Because of this, we strongly advise using JetBrains Rider IDE if your RAM allows it, as it provides the best autocompletion and function documentation support. If it doesn’t, try increasing your swap file to use your SSD as temporary RAM.
+Keep in mind that C++, OOP, and other programming patterns are not quite the same when developing in Unreal Engine. Moreover, Unreal Engine documentation can be extremely frustrating to navigate. Because of this, we strongly advise using JetBrains Rider IDE if your RAM allows it, as it provides the best autocompletion and function documentation support. Otherwise, you can try increasing your swap file to use your SSD as temporary RAM.
 
-While this documentation isn’t perfect (we only had six months to develop, test, design, and write it!), we’ve tried to document as much as possible to help guide you through.
+---
 
-## Why We Used mostly C++ Instead of Blueprints
+!!! Note
 
-In short, for maintainability. Yes, C++ can be hard, complicated, and unforgiving, but once you become familiar with its inner workings, it will become both your best friend and, sometimes, your worst enemy. If you’re new to C++, take it slowly. If you’re not sure how to implement something, try building it in Blueprints first, even if it turns into a litteral of spaghetti code. When you reach that point, it’s usually a good time to start rewriting it in C++.
+    We have made an effort to cover as much as possible. However, as you will soon realize, balancing the development of new features, handling with the HZ internship flow/process, and keeping documentation up to date is no small feat.
 
-## Structure of this documentation
-
-This documentation is mainly focused on the Unreal Engine application but in the future, we plan to expand it to other projects as well.
-
-Keep in mind that we tried to make this cover as much as possible but as you will soon understand, it is quite difficult to handle all the HZ shenanigans, develop new features, and document it. :)
+    While this documentation may not be perfect, it should serve as a solid guide to help you get started and make sense of the project.

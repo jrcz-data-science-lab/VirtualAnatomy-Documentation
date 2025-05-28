@@ -4,28 +4,33 @@ weight: -3
 
 # About the project
 
-The project is designed for nursing students at HZ University of Applied Sciences, whose nursing department is located in Vlissingen.
+This project is developed for nursing department at HZ University of Applied Sciences in Vlissingen campus.
 
-## Anatomy
+## Purpose
 
-Learning human anatomy can be challenging without the right resources. During lectures, teachers often use presentations to display different parts of the human body. 
+Nursing students often face difficulties in understanding complex anatomical structures and the effects of various medical conditions on the human body. Traditional learning methods - such as static images in presentations - do not always provide the interactivity needed for deep comprehension.
 
-However, the issue arises when they cannot manipulate the body parts as they wish. Instead, they must find static images from various angles, which is neither fast nor efficient.
+To address this, we have created an interactive Unreal Engine–based application that enhances anatomy education by allowing both students and instructors to explore the human body in an engaging and dynamic way.
 
-This application will streamline the teaching process for instructors and enhance the learning experience for students.
+## Our goal
 
-The key benefit of using this Unreal Engine application is that the body model is fully interactive, allowing students to get a comprehensive understanding of the inner workings of the human body. 
+Our goal is simple: to provide the most efficient and interactive way for teachers and students to explore the human body, deepen their understanding of anatomy, and, ultimately, contribute positively to healthcare education and society.
 
-Additionally, teachers can display organs, bones, arteries, and other anatomical structures from any angle they prefer.
 
-## Learning
+## Interactive Anatomy
 
-As mentioned, students can use this application to practice their anatomy knowledge. It features an interactive quiz built within Unreal Engine. The quiz questions, provided by the teachers, are fetched via an API call to a website designed for creating such quizzes [here]().
+Understanding human anatomy becomes significantly easier when learners can interact with the subject matter. In standard lectures, instructors typically rely on slides filled with fixed-angle images, which limits their ability to demonstrate anatomical structures effectively.
 
-## Our Goal
+This application streamlines the teaching process and enriches student learning by offering a fully interactive 3D model of the human body. Teachers can display organs, bones, arteries, and other structures from any angle, manipulate them freely, and guide students through complex topics in real time.
 
-Our goal is simple: to provide the most efficient way for teachers and students to gain knowledge about the human body and, in doing so, contribute positively to society.
+Beyond simple visualization, it is aimed that the platform includes powerful features to support and enrich the curriculum such as detailed anatomical descriptions, layered filtering options, guided tours, demonstration of illnesses, and so on.
+
+## Interactive Learning
+
+Students could strengthen their understanding through interactive features included in the application. These elements are intended to complement traditional learning methods by encouraging exploration and offering opportunities for self-assessment in a more engaging format.
+
+By integrating with external educational platforms, the application could support a variety of instructional materials and activities aligned with the nursing curriculum.
 
 ## Medical resources 
 
-Information about shock provided by Bas [link](../misc/Shock JRCZ 9-12-2024.pdf)
+Information about shocks has been provided by HZ nursing teachers: [Link to the document](../misc/Shock JRCZ 9-12-2024.pdf)
