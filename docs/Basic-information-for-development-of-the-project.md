@@ -1,8 +1,8 @@
 ---
-weight: -2
+weight: -1
 ---
 
-# Basic information for development of the project
+# Codebase overview & guidelines
 
 This section outlines fundamental guidelines and practices essential for continuing development on this project.
 
@@ -13,7 +13,6 @@ For class members that have macro `UPROPERTY` or `UFUNCTION` defined above them,
 For functions that are used inside classes we have also used `PascalCase`
 
 For private member functions that are only accessible within the classes we have used `m_` prefix and `smallPacalCase` example
-
 
 ```c++
 class FooBar{

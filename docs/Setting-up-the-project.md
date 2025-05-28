@@ -1,8 +1,9 @@
 ---
-weight: -1
+weight: -2
 ---
 
-# Setting up the project
+# Setting up the Virtual Anatomy repository
+
 To begin development of this application, you need to retrieve Virtual Anatomy project from the [GitHub repository](https://github.com/jrcz-data-science-lab/Virtual-Anatomy-UE) and download [Unreal Engine](https://www.unrealengine.com/en-US) (at least version 5.5), which can be found in the [Epic Games Launcher](https://store.epicgames.com/en-US/download).
 
 !!! Note 
