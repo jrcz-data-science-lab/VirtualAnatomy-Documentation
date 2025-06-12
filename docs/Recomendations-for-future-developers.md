@@ -4,9 +4,27 @@ weight: 2
 
 # Recommendations for future developers
 
-TBD 
+## Recommendations from [@bartan02]((https://github.com/Bartan02))
 
-??? "Recommendations left on version 1.0.0"
+### Version Control
+When working with Unreal Engine assets (especially with this one: ExplorerMap.uasset), developers must be extremely cautious with branch management. Concurrent modifications to the same asset can lead to difficult merge conflicts.
+Additionally, To maintain project integrity and reduce conflicts, changes should be committed, pulled, and merged frequently—especially after major updates or before switching tasks.
+
+### Simulation Manager
+Significant improvements to the simulation system (managed by SimulationManager class), are recommended:
+
+- Investigate automated methods for spline generation to better simulate blood particle flow.
+- Use the predefined poses available in the project to support a fully functional and position-aware anatomy simulation system.
+Do not forget about dynamic organ positioning and simulating corresponding blood flow variations based on different body poses.
+- Last, but not least, minimize the frequency of crashes that occur when interacting with this system.
+
+### Slicer
+Implementing logic to exclude raycasting on body parts hidden by the slicer could be considered. While not critical, this enhancement could improve performance and offer a smoother, more intuitive user experience, especially during interactions with the visible anatomy layers.
+
+### New features
+There are still some pending new features, such as the inclusion of blood pressure functionality and additional human parts or organs suggested by the nursing faculty. These enhancements would be valuable additions to the application. For some more details, please go to '(User) requirements list' Issue on GitHub repository.
+
+??? "Recommendations left on version 1.0.0 of this documentation"
 
     This seciton covers some recomendations we have for you. If you find this taken out of context, it is. I have written this to my porfolio and i am putting it here for you so that you have some stepping stones while starting this project and to know, what should you focuse on. I hope i have covered most of the aspects that needs to be done. Keep in mind that this is only my (Simon's) recomendations. Daniel will hopefuly have his own paragraph later on. 
     
