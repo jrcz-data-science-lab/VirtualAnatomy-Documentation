@@ -48,7 +48,6 @@ This section details the C++ `USTRUCT`s that define the data models used through
 ### [FQuizData](Quiz_Data.md)
 ### [FQuizQuestion](Quiz_Question.md)
 ### [FQuizAnswer](Quiz_Answer.md)
-### [FQuizSubmittedAnswerPayload](Quiz_Submitted_Answer_Payload.md)
 ### [FQuizSubmissionPayload](Quiz_Submission_Payload.md)
 ### [FMeshCatalogEntryUE and FOrganGroupUE](Mesh_And_Group_Data.md)
 
