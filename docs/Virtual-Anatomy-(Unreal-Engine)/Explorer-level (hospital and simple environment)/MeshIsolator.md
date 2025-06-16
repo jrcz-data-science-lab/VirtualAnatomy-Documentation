@@ -1,4 +1,4 @@
-# Isolate Mesh
+# UCPP_IsolateMesh (Mesh Isolator)
 
 ## Class Description
 
