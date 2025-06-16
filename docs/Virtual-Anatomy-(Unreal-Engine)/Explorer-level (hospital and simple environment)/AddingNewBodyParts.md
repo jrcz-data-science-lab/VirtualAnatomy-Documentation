@@ -1,9 +1,9 @@
-## Adding a New Model with the Picker
+# Adding new body parts
 
-To add a new part of the model, follow these steps. This guide assumes you have already imported your picker mesh and skeletal mesh.
+To add a new part of the model, follow these steps. This guide assumes that you have already imported your picker mesh, and skeletal mesh.
 
 1. **Make the Merged Model a Skeletal Mesh:**  
-   Refer to the [Animation](tions.md) chapter to learn how to create a Skeletal Mesh.
+   Refer to the [Animation](Animations/Animations.md) chapter to learn how to create a Skeletal Mesh.
 
 2. **Create a New Blueprint:**  
    Name it `BP_YourPartOfTheBody`.
@@ -38,7 +38,7 @@ To add a new part of the model, follow these steps. This guide assumes you have 
     You should now see something like this:
 
     <figure markdown="span">
-      ![bones and picker mesh](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/adding-new-meshes-part-2.png) <figcaption>Viewport of the new body part and its picker mesh</figcaption>
+      ![bones and picker mesh](../../images/adding-new-meshes-part-2.png) <figcaption>Viewport of the new body part and its picker mesh</figcaption>
     </figure>
 
 11. **Configure the Picker Mesh:**  
@@ -51,7 +51,7 @@ To add a new part of the model, follow these steps. This guide assumes you have 
     Your configuration should look like this:
 
     <figure markdown="span">
-      ![bones and picker mesh](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/adding-new-meshes-part-3.png) <figcaption>Collision presets</figcaption>
+      ![bones and picker mesh](../../images/adding-new-meshes-part-3.png) <figcaption>Collision presets</figcaption>
     </figure>
 
-Once you've completed these steps, you should be able to select individual parts of the model as well as the entire skeletal mesh from the sidebar of the application.
+Once you have completed these steps, you should be able to select individual parts of the model as well as the entire skeletal mesh from the sidebar of the application.
