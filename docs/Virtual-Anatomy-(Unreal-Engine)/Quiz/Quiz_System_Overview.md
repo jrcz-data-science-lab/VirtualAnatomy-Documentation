@@ -1,3 +1,7 @@
+---
+weight: -1
+---
+
 # Quiz System Documentation
 
 The Virtual Anatomy project includes a comprehensive Quiz system designed to test user knowledge of human anatomy. This documentation outlines its architecture, data flow, and key components.
