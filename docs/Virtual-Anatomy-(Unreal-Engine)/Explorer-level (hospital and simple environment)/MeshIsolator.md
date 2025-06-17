@@ -2,7 +2,6 @@
 
 ## Class Description
 
-**`UCPP_IsolateMesh`:**  
 This class is responsible for isolating a selected part of a 3D model by repositioning both the camera's focus point and the chosen mesh to another plane within the explorer level. The selection is handled via the `MeshSelector` class.
 
 ---

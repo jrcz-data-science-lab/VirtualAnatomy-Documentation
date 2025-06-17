@@ -1,23 +1,15 @@
-# First Glance at the Project
+---
+weight: -1
+---
 
-You have now entered the `Explorer Level` of the project and are probably wondering where you should even start. No worries, we’ve got you covered.
+# Content browser
 
-The scene you see loaded is in the `View Port`. This is where you can interact with different `Actors`, be it static meshes, post-processing volumes, and more.
+On the very bottom of the Unreal Engine, you should see an icon with a folder; this is called the `Content Browser`. Here, all the project files, assets, and Blueprints for the Virtual Anatomy are located.
 
-On the very right side, you see your `World Explorer`. This contains everything you see in the `View Port`, organized in folders. Each folder contains one or more `Scene Elements`, and each scene element contains one or more `Actors` that are displayed in your View Port, assuming they have something to display, like a `Static Mesh`.
+You can see below the content browser structure of this Unreal Engine project. There is a lot, but you do not need to swot it all at once. You will get used to it as you work with this project for a long time. 
 
-## What Is in the Scene
-
-### Folders with Names of Human Body
-
-Those folders contain exactly what you might imagine: scene components with the `Static Meshes` inside them. Each scene component represents a part of the model.
-
-For example, in the `Bones` directory, you can find a `Skull` sub-directory, and inside it, there are a lot of scene components that are static meshes, which contain the actual geometry and material of fragments of the human skull. Try to click on one to see where it is located in the `View Port`.
-
-## Content Browser
-
-On the very bottom of the Unreal Engine, you should see an icon with a folder; this is called the `Content Browser`. Here, all of the project files, assets, and `Blueprints` are located. This is what you can find there.
-
+!!! Warning
+    Content browser below TO BE UPDATED. Some directories are changed or removed, and some are added. Those changes have not been reflected in this document yet.
 
 ```shell
  ├── Blueprints
@@ -135,64 +127,64 @@ On the very bottom of the Unreal Engine, you should see an icon with a folder; t
 
 That is a lot of directories, right? Let's walk through them really superficially to get a basic idea of what is going on.
 
-### Blueprints
+## Blueprints
 
 Here, all of the Blueprints are located. You can find the Blueprints for the User that can walk around (inside the `UserControls` folder) in the scene once the simulation is started (we will talk about this later).
 
-### Developers
+## Developers
 
 Here, each developer can store their personalized assets. Nothing should be here unless you want to hide something from your colleagues.
 
-### Enums
+## Enums
 
 This folder contains Enums to differentiate between parts of the model, like the skull, muscles, heart, etc.
 
-### Input
+## Input
 
 This directory contains inputs and input mappings utilizing the [Unreal Engine Enhanced Input system](https://dev.epicgames.com/documentation/en-us/unreal-engine/enhanced-input-in-unreal-engine).
 
 In short, all user actions are defined here. A simple example of such an action is pressing `Space` to jump.
 
-### Maps
+## Maps
 
 Here we store different levels that users can visit during their time spent in the application.
 
 Levels are independent of each other and are exactly like levels in any video game.
 
-### Materials
+## Materials
 
 This folder should ideally be renamed to `Assets` instead of `Materials`, but for now, it remains as is.
 
 In short, this folder contains all the meshes, textures, materials, and HDRIs used in the levels.
 
-### Materials/Body-Merged-Full
+## Materials/Body-Merged-Full
 
 This subfolder contains all the merged body parts such as the heart, bones, and lungs. Additionally, you will also find the `Animations` folder here, which, as the name suggests, contains all the animations.
 
-### Materials/Body-No-Materials
+## Materials/Body-No-Materials
 
 This subfolder contains individual meshes used for selecting specific parts of the body.
 
 
 > **NOTE**: When you change an asset here, it will not be updated inside the View Port and World Explorer.
 
-### Python
+## Python
 
 Plain and simple, here are all of the Python scripts used **only inside the engine**.
 
-### Steredo3D_VitalVolkov
+## Steredo3D_VitalVolkov
 
 This is from developers before us and contains the ability to see the model in 3D (yes, with 3D glasses) only if your monitor supports it. This feature has not been used so far, so you can experiment with it.
 
-### Test
+## Test
 
 This is pretty self-explanatory.
 
-### UI
+## UI
 
 Here you can find all of the widget Blueprints. In other words, every UI component, like buttons, menus, main pages, etc., can be found and edited here.
 
-### Virtual anatomy 
+## Virtual anatomy
 
 In this directory is the main source code of the entire application. Here you can find another subdirectory, `C++`, which contains the actual C++ code.
 
