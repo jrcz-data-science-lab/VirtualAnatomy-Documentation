@@ -1,4 +1,4 @@
-# UCPP_BaseAnimation Class
+# UCPP_BaseAnimation
 
 This class serves as the base class for all potential animations in the game. It is designed to be inherited by other C++ classes, not directly by Blueprints. Its primary purpose is to start or stop animations in response to events fired by the `SimulationManager` class. This class may also be extended to hold various parameters in the future.
 
