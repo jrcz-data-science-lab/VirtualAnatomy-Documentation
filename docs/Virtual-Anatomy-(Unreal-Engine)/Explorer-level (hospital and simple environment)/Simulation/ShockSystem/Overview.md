@@ -1,53 +1,70 @@
-# Shock System Overview
+# 🧠 Shock System Overview
 
-Welcome to the **Shock System** documentation for the Virtual Anatomy project. This system is a core component responsible for simulating various medical diagnoses and providing real-time visual and interactive feedback to the user.
+Welcome to the **Shock System** documentation for the Virtual Anatomy project.  
+This system is the core engine responsible for simulating medical diagnoses and triggering all associated visuals, logic, and interactions.
 
-At its heart, the Shock System orchestrates dynamic changes within the anatomical model, including:
-* Activation and management of specific medical diagnoses (e.g., Cardiogenic Shock).
-* Dynamic updates of simulation parameters (like heart rate, blood pressure, etc.).
-* Display of crucial visual indicators, such as "breathing dots" and floating temperature labels.
-* Integration of sophisticated Niagara visual effects (FX) to enhance realism.
+At its core, the Shock System:
 
-This system is designed to be highly modular and extensible, allowing for the easy addition of new diagnoses and associated behaviors.
+- Activates and manages specific medical diagnoses (e.g., Cardiogenic Shock)
+- Updates simulation parameters in real-time (e.g., BPM, blood speed)
+- Spawns breathing dot indicators and floating temperature labels
+- Triggers Niagara FX based on diagnosis-specific behavior
+- Delegates runtime logic to modular shock behavior classes
 
----
-
-## Core Components
-
-The Shock System is built around several interconnected C++ classes:
-
-* **`UCPP_SimulationManager`**: The central orchestrator. It manages the overall simulation state, delegates behavior to specific diagnosis handlers, and controls the spawning and clearing of all visual indicators and FX.
-* **`UDiagnosisRegistery`**: A repository that stores and provides access to all predefined `UCPP_Diagnosis` profiles. It uses `DiagnosisBuilder` to construct these profiles.
-* **`UCPP_Diagnosis`**: Represents a single, complete medical diagnosis. Each instance encapsulates all the data and configuration for a specific shock type, including simulation parameters, FX, UI indicators, and optional runtime behavior (`UShockBehavior`).
-* **`UShockBehavior`**: (Base class) Defines the specific runtime logic and actions for a given diagnosis. Subclasses of `UShockBehavior` (e.g., `UCardiogenicShockBehavior`, `UDistributiveShockBehavior`, `UObstructiveShockBehavior`) implement the unique characteristics of each medical condition.
-* **`DiagnosisBuilder`**: A utility class used by `UDiagnosisRegistery` to fluently construct `UCPP_Diagnosis` objects with all their associated properties, effects, and indicators.
-* **`UBreathingDotWidget`**: A `UUserWidget` subclass used to create dynamic, animated UI indicators that typically represent physiological points or interactive hotspots.
-* **`AFloatingTemperatureLabel`**: An `AActor` responsible for displaying 3D text labels for core and skin temperatures in the world.
+It is designed for **modularity**, **data-driven configuration**, and **runtime extensibility**, making it easy to add new diagnosis types or behaviors.
 
 ---
 
-## Capabilities
+## 🧩 Core Architecture
 
-The Shock System enables:
-* **Dynamic Diagnosis Switching**: Seamlessly change between different medical conditions at runtime.
-* **Real-time Parameter Updates**: Adjust simulation parameters (e.g., speed, BPM) during an active simulation.
-* **Visual Feedback**:
-    * **Breathing Dots**: Intuitive UI elements for showing vital signs or interactive regions.
-    * **Niagara FX**: High-fidelity particle effects for visual representation of physiological states (e.g., sweat, pulse, internal conditions).
-    * **Temperature Labels**: 3D floating text displaying core and skin temperatures.
-* **Extensible Behavior**: Easily add new diagnosis types with unique runtime behaviors without modifying core system logic.
+The system is composed of the following major classes:
 
----
-
-## Sections in Detail
-
-| Topic                                | Description                                                               | Relevant Classes                             |
-| :----------------------------------- | :------------------------------------------------------------------------ | :------------------------------------------- |
-| [[Breathing Dots]]                 | Detailed look at `UBreathingDotWidget` and `UShockIndicator`.             | `UBreathingDotWidget`, `UShockIndicator`     |
-| [[FX and Materials]]               | Configuration of Niagara Effects (`FDiagnosisEffect`) and their use.    | `FDiagnosisEffect`, `UNiagaraSystem`         |
-| [[How Everything Connects at Runtime]] | The interaction flow between `UCPP_SimulationManager`, `UCPP_Diagnosis`, `UDiagnosisRegistery`, and `UShockBehavior`. | `UCPP_SimulationManager`, `UCPP_Diagnosis`, `UDiagnosisRegistery`, `UShockBehavior` |
-| [[Debugging & Extension Tips]]     | Guidance on troubleshooting and extending the Shock System.             | (General, applies to all classes)            |
+| Class                    | Purpose                                                                                   |
+|--------------------------|-------------------------------------------------------------------------------------------|
+| `UCPP_SimulationManager` | Central coordinator. Manages the active diagnosis, simulation parameters, FX, and UI.     |
+| `UDiagnosisRegistery`    | Holds and constructs all available `UCPP_Diagnosis` objects using the `DiagnosisBuilder`. |
+| `UCPP_Diagnosis`         | Represents a specific diagnosis (e.g., Cardiogenic Shock). Stores all relevant settings.  |
+| `UShockBehavior`         | Runtime logic executor. Each diagnosis has its own subclass to handle behavior (e.g., FX).|
+| `DiagnosisBuilder`       | Fluent API for constructing complete diagnoses, indicators, effects, and behavior.        |
+| `UShockIndicator`        | Data structure defining a breathing dot’s socket, title, description, and icon.           |
+| `UBreathingDotWidget`    | Widget used to visually represent indicators in the 3D space.                             |
+| `AFloatingTemperatureLabel` | Actor that renders dynamic core and skin temperature data in the scene.              |
 
 ---
 
-Continue to the next sections for an in-depth exploration of each component.
+## 🚀 Capabilities
+
+- **Dynamic Diagnosis Switching**
+  - Switch between diagnosis types at runtime
+  - Cleans up previous state and enters new behavior
+- **Real-Time Simulation Updates**
+  - BPM, blood speed, and viscosity are adjustable during runtime
+- **Fully Visualized System**
+  - **Breathing Dots**: UI elements bound to anatomical sockets
+  - **Niagara FX**: Sweat, pulse, shock visuals, etc.
+  - **Temperature Labels**: 3D feedback for skin and core temps
+- **Extensible Runtime Logic**
+  - Every diagnosis can have its own `UShockBehavior`
+  - Runtime effects and timing are modular per behavior class
+
+---
+
+## 🔍 Docs Overview
+
+| Section                            | Description                                                                 | Key Classes                               |
+|------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------|
+| [Breathing Dots](Breathing-Dots.md) | Shows how UI indicators are defined in C++ and rendered in 3D.              | `UShockIndicator`, `UBreathingDotWidget`  |
+| [FX and Materials](Fx-and-Materials.md) | Describes how Niagara effects are assigned and controlled.                | `FDiagnosisEffect`, `UNiagaraSystem`      |
+| [How Everything Connects at Runtime](How-Everything-Connects-At-Runtime.md) | Step-by-step runtime execution of diagnosis switching and updates. | `UCPP_SimulationManager`, `UShockBehavior`, `UDiagnosisRegistery`, `UCPP_Diagnosis` |
+| [Debugging & Extension Tips](Debugging-Extension-Tips.md) | Practical advice for adding features, fixing bugs, and scaling the system. | (Applies to all subsystems)               |
+
+---
+
+## ✅ Summary
+
+The Shock System is the foundational layer that unifies diagnosis data, runtime behavior, visuals, and UI indicators.  
+Thanks to its **data-driven structure** and **behavior-oriented logic**, adding new features or diagnoses requires **minimal changes to core code**.
+
+This documentation suite will walk you through each part of the system.  
+Start with [Diagnosis System](Diagnosis-System.md) to understand how everything begins.
+
