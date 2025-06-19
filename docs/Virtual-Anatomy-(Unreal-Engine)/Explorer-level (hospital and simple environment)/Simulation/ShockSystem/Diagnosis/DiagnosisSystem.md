@@ -180,9 +180,3 @@ These components are optional. The builder allows you to skip any of them.
 - ⚠️ Socket names must match skeleton socket bones.
 
 ---
-
-## 📎 Related Docs
-
-- [Breathing Dots](Breathing-Dots.md)
-- [Fx and Materials](Fx-and-Materials.md)
-- [How Everything Connects at Runtime](How-Everything-Connects-At-Runtime.md)
