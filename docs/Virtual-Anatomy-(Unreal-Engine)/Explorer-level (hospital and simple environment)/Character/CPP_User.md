@@ -43,7 +43,7 @@ If you visit the `BP_User` and open the viewport, you can see both the spring ar
 
 This is the invisible actor in the scene which specifies the target around which our camera orbits.
 
-This actor is moved around the model of the human body based on which part of the body was selected. See [MeshSelector](../Mesh-Selection/MeshSelector.md) for more details.
+This actor is moved around the model of the human body based on which part of the body was selected. See [MeshSelector](../Mesh-Selection/mesh-selector/how-is-highlighting-done.md) for more details.
 
 ### `USpringArmComponent* CameraBoom;`
 >`	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera)`
@@ -143,7 +143,7 @@ Lastly, we calculate the new position of the player (user) using this newly calc
 
 This function is executed once per click.
 
-This function performs a ray cast (See [FRayCaster](../Mesh-Selection/RayCasting.md) for more details about it) to determine if the user clicked on the actor (or in the context of virtual anatomy: human organ) and when yes, which one exactly. It also sets the new position of the target actor to update where the camera should look, and highlights the selected mesh.
+This function performs a ray cast (See [FRayCaster](../Mesh-Selection/Raycasting/How-is-raycasting-done.md) for more details about it) to determine if the user clicked on the actor (or in the context of virtual anatomy: human organ) and when yes, which one exactly. It also sets the new position of the target actor to update where the camera should look, and highlights the selected mesh.
 
 ### `void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)`
 
@@ -202,6 +202,6 @@ This is a pointer to the camera controls class, which is used to control the cam
 
 It holds unique pointer to the `Mesh Selector` class
 
-The main purpose of this class is to highlight the objects that user has clicked on. See [MeshSelector](../Mesh-Selection/MeshSelector.md)
+The main purpose of this class is to highlight the objects that user has clicked on. See [MeshSelector](../Mesh-Selection/mesh-selector/how-is-highlighting-done.md)
 
 
