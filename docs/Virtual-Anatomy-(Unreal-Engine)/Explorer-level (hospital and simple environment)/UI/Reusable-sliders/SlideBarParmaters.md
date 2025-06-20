@@ -1,9 +1,11 @@
 # SlideBarsParameters.h
 
+!!! Warning
+
+    This class 
+
 ## Overview
 This file defines the structures and enumerations used for controlling global simulation parameters and camera sensitivity settings via sliders. It includes functions for manipulating the simulation speed and scale, as well as adjusting camera movement and zoom sensitivities.
-
----
 
 ## Enumerations
 
@@ -13,13 +15,18 @@ An enumeration for the parameters that can be changed via sliders in the simulat
 - **Speed**: Represents the speed of the simulation.
 - **ScaleFactor**: Represents the scaling factor that affects the speed of the simulation.
 
+### ESlicerParamToChange
+An enumeration for the parameters that can be changed via sliders in the slicer functionality.
+
+- **Distance**: Represents the distance of the slicer from the object.
+- **Rotation**: Represents the rotation of the slicer.
+- **isSlicerOff**: Indicates whether the slicer is turned off.
+
 ### ESensitivityOf
 An enumeration for different types of camera sensitivity settings.
 
 - **CAMERA_MOVEMENT**: Represents the sensitivity of camera movement.
 - **CAMERA_ZOOM**: Represents the sensitivity of camera zoom.
-
----
 
 ## Structs
 
@@ -35,7 +42,14 @@ Represents the global parameters of the simulation that are controlled by slider
   
 - **float& GetFieldToChangeBySlider(ESimulationParamToChange paramToChange)**: Returns a reference to the field of the struct that the slider should change. The parameter `paramToChange` determines whether the slider will adjust `Speed` or `ScaleFactor`.
 
----
+### FSlicerSlideBarsParameters
+Represents the global parameters for the slicer functionality that can be controlled via sliders.
+
+#### Members:
+- **float Distance**: The distance of the slicer from the object.
+- **float Rotation**: The rotation of the slicer.
+- **bool isSlicerOff**: Indicates whether the slicer is turned off.
+
 
 ### FCameraSensitivitySettings
 Represents the sensitivity settings for the camera, including movement and zoom sensitivity.
@@ -50,8 +64,6 @@ Represents the sensitivity settings for the camera, including movement and zoom 
 - **float& GetSensitivityOf(ESensitivityOf sensitivityOf)**: Returns a reference to the specified sensitivity setting. The `sensitivityOf` parameter can be `CAMERA_MOVEMENT` or `CAMERA_ZOOM`.
   
 - **float& GetSliderValueFor(ESensitivityOf sensitivityOf)**: Returns a reference to the slider value for the specified sensitivity setting. The `sensitivityOf` parameter can be `CAMERA_MOVEMENT` or `CAMERA_ZOOM`.
-
----
 
 ## Error Handling
 - In `GetFieldToChangeBySlider` and `GetSensitivityOf`, if an invalid parameter is passed (i.e., an unknown enum value), an error message is logged using `UE_LOG`.

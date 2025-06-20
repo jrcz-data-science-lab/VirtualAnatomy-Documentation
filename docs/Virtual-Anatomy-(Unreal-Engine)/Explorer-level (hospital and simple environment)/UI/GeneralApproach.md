@@ -1,3 +1,5 @@
+# General approach
+
 ## How the UI is Done
 
 In this section, we will discuss and explain how we created the UI.

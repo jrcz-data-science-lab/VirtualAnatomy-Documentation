@@ -4,17 +4,21 @@ This section explains how the framework for sliders in the application was devel
 
 ## Types of Sliders  
 
-Currently, there are two types of sliders in the application:  
+Currently, there are three types of sliders in the application:  
 
-1. **Simulation Slider:**  
-    Found in `CPP_SimulationSlideBar.h/.cpp`.  
+1. **Simulation Sliders:**  
+    In `CPP_SimulationSlideBar.h/.cpp`.  
    
     Controls simulation-related parameters.  
+2. **Slicer Sliders:**  
+   In `CPP_SimulationSlideBar.h/.cpp`.
 
-2. **Settings Slider:**  
+   Controls slicer-related parameters.
+
+3. **Settings Sliders:**  
     Located in `UCPP_SettingsSlider.h/.cpp`.  
     
-    Used on the settings page to adjust various application settings.  
+    **Currently not used on the settings page to adjust various application settings.**
 
 This approach ensures visually coherent sliders with different functionalities based on the application's context. We aimed to make this framework as user-friendly as possible, meaning you only need to define a few variables to create a new slider that controls a unique part of the application.  
 
@@ -22,13 +26,13 @@ Before explaining how to implement this, let’s cover the general structure of 
 
 ## Structure  
 
-Both `UCPP_SimulationSlideBar` and `UCPP_SettingsSlider` inherit from `UUserWidget`, allowing for easy styling in the editor. Each slider serves as a parent class to the corresponding `WidgetBlueprint` located in `Content/UI/Components/Sliders`. The prefix `WB_` distinguishes widget blueprints from regular blueprint classes.  
+`UCPP_SimulationSlideBar`, `UCPP_SlicerSideBar`, and `UCPP_SettingsSlider` inherit from `UUserWidget`, allowing for easy styling in the editor. Each slider serves as a parent class to the corresponding `WidgetBlueprint` located in `Content/UI/Components/Sliders`. The prefix `WB_` distinguishes widget blueprints from regular blueprint classes.  
 
 In the editor, you can adjust the appearance of sliders and related components such as headers, maximum, and minimum markers.  
 
 ### Reusability  
 
-The most important aspect of the framework is its reusability. Since sliders can affect various parameters in the simulation or application settings, these parameters can be configured directly in the editor during the design process. Image below ilustrates one of the sliders displayed on settings page and its corresponding `enum` that is specifing which fields to change.
+The most important aspect of the framework is its reusability. Since sliders can affect various parameters in the simulation or application settings, these parameters can be configured directly in the editor during the design process. Image below ilustrates one of the sliders displayed on settings page and its corresponding `enum` that is specifying which fields to change.
 
 > **Note:**  
 > If you find this approach overly complex, feel free to adjust it, but be sure to update this documentation accordingly.
@@ -79,7 +83,6 @@ Since the settings slider is expected to be used primarily on the settings page,
 If the level is not refreshed, you need to manually trigger an event that updates parameters like camera rotation sensitivity and zoom sensitivity. This ensures that changes made in the settings are applied in real-time without requiring a level reload.
 
 The struct for the settings slider that holds data of different parameters looks like the code listing below. In case you want to have another settings here just simply add the new field to hold the value to change. You must not forget to also add the field that is going to hold the slider state, that is the value of the slider. 
-
 
 ## Enum-Based Value Selection  
 

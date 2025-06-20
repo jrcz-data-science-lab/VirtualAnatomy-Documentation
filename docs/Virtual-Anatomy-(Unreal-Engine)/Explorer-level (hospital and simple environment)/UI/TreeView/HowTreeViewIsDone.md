@@ -1,32 +1,30 @@
 # How tree view is done 
 
-In this section we will talk about how we implemented the tree view that can be seen in the side bar of hte explorer level 
+In this section we will talk about how we implemented the tree view that can be seen in the sidebar of hte explorer level 
 
 ## Data files 
 
 To implement tree view we need to have data that will be displayed there for this purpose 2 new classes were created. Each of those classes is inhering `UObject` so that we can later interpret and visualize these data. 
 
-### `CPP_TreeViewEntry` 
+### `CPP_TreeViewEntry` 
 This is representing the roots of the tree. This is data that the class contains 
 
 `FString FolderName` - name of the folder that will be displayed
-
-`bool IsChild` - is the folder child of another folder ? 
 	
 `int Depth` - depth inside the tree, this will determine the padding of the folder 
 
-`TArray<UCPP_TreeViewEntryChild*> Children` - children of the folder componet that are visible in the scene and user can interact with
+`TArray<UCPP_TreeViewEntryChild*> Children` - children of the folder component that are visible in the scene and user can interact with
 
-`TArray<UCPP_TreeViewEntry*> SubFolders` - other subfolders (not implemented and you can try to implement sub folders )
+`TArray<UCPP_TreeViewEntry*> SubFolders` - other subfolders (not implemented, and you can try to implement sub folders )
 
-In addtion methods that are used to populate this class can be found as well. The methods are self explanatory and documented in code so i will not be explaineing them here.
+In addition, methods that are used to populate this class can be found as well. The methods are self-explanatory and documented in code, so they will not be explained here.
 
-We have used `Builder` pattern to aid us with readability since each creational method like `SetActor` or `SetName` returns reference to itself meaning we can chain call those functions like following 
-
+We have used `Builder` pattern to aid us with readability since each creational method like `SetActor` or `SetName` returns reference to itself meaning we can chain call those functions like following 
 
 ```c++
 builder->SetName("name")->SetActor(actor)->SetComponent(component)->Create()
 ```
+
 ### `CPP_TreeViewChildEntry`
 
 Since we have two distinct visual components that display different information to the user, we needed to create a separate data class purely for the child components of the tree view.
@@ -76,14 +74,11 @@ This process highlights one of the main reasons it's crucial to follow the stand
 
 If all operations are successful (check the console for any warnings or errors), the new folder will appear in the tree view component. If any child components were found, they will appear under the folder as well.
 
-
 During the `NativeConstruct` event, we iterate over all root-level items and execute the `AddItem` function on the `UTreeView` component. This populates Unreal Engine's internal data structure and additionally triggers the `NativeOnListItemObjectSet` function of the `IUserObjectListEntry` interface.
 
 The importance of `NativeOnListItemObjectSet` will be discussed further below.
 
-
-
-To specify the `UUserWidgetBluerpint` that is going to be displayed as an itme of the tree view we have configured the `ListEntires` of the `TreeViewComponet` to be `WBP_TreeViewItem`
+To specify the `UUserWidgetBluerpint` that is going to be displayed as an item of the tree view we have configured the `ListEntires` of the `TreeViewComponet` to be `WBP_TreeViewItem`
 
 ## Tree view entry widget 
 
@@ -97,9 +92,8 @@ To accomplish this, we implement the `IUserObjectListEntry` interface, which inc
 
 Since we’ve set up bindings to the text box, we can easily control the text that displays. In practice, this setup is straightforward and works as follows:
 
-
 ```c++
-// UCPP_TreeViewEntry.cpp
+// CPP_TreeViewEntryWidget.cpp
 
 void UCPP_TreeViewEntryWidget::NativeOnListItemObjectSet(UObject* ListItemObject)
 {
@@ -109,16 +103,15 @@ void UCPP_TreeViewEntryWidget::NativeOnListItemObjectSet(UObject* ListItemObject
 	
 	FolderName->SetText(FText::FromString(TreeViewEntryData->GetFolderName()));
 
-    // explained later 
     for (auto &Child : TreeViewEntryData->GetChildren())
 	{
 		Children->AddItem(Child);
 	}
 }
 ```
-We were not able to figure out how to use tree view to its full extend but you can. This means that to display children of the `CPP_TreeViewEntry` we have used another build in wiget called `ListView` this widget works similuarly to the `TreeView` in a sense that it can display `N` componentes that have the same styling and that we can choose styling that we want thanks to the `UMG` 
+We were not able to figure out how to use tree view to its full extent, but you can. This means that to display children of the `CPP_TreeViewEntry` we have used another build in widget called `ListView` this widget works similarly to the `TreeView` in a sense that it can display `N` components that have the same styling and that we can choose styling that we want thanks to the `UMG` 
 
-What this means in practise is that the parent a.k.a (`UCPP_TreeViewEntryWidget`) holds a bindable pointer to the `ListView` which we can populate with children passed to it during creation process  
+What this means in practise is that the parent (`UCPP_TreeViewEntryWidget`) holds a bindable pointer to the `ListView` which we can populate with children passed to it during creation process  
 
 <figure markdown="span">
   ![Simulation event graph](https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/images/tree-view-and-tree-view-children-umg.png) <figcaption>Tree view item holds list view where each child that represents the skeletal mesh is located </figcaption>
