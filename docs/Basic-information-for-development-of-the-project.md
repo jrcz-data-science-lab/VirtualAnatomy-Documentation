@@ -52,3 +52,55 @@ The decision to use C++ as the primary development language stems from a focus o
 For those unfamiliar with C++, it’s perfectly acceptable to begin prototyping in Blueprints. Often, when a Blueprint implementation becomes difficult to manage or overly complex, it’s a good indicator that it should be refactored into C++.
 
 Take your time learning C++; it can be both powerful and challenging—but ultimately rewarding.
+
+## Development Approaches in Unreal Engine
+
+### Blueprints
+
+**Advantages**
+- Easy to understand
+- Integrated in the editor
+- Easier debugging
+- No C++ knowledge required
+
+**Disadvantages**
+- Limited scalability
+- Difficult to implement complex systems
+- Slower performance
+
+**Notes**
+> Best for prototyping and ideal for small projects.
+
+---
+
+### C++
+
+**Advantages**
+- High performance
+- Full control over memory
+- Higher maintainability
+- Future-proof
+
+**Disadvantages**
+- Steeper learning curve
+- Requires IDE setup and recompilation
+
+**Notes**
+> Excellent for large systems and requires experienced developers.
+
+---
+
+### C++ & Blueprints (Hybrid)
+
+**Advantages**
+- Best of both worlds
+- Flexibility
+- High efficiency
+- Logical flow
+
+**Disadvantages**
+- Complexity of combining workflows
+- Requires expertise in both systems
+
+**Notes**
+> Optimal for mid- to large-scale projects.

@@ -104,29 +104,37 @@ Called when user exits, resets, or changes context.
 
 ## 🔄 Runtime Behavior Summary
 
-```mermaid
-graph TD
-  A[BeginPlay] --> B[DiagnosisRegistery -> BuildDiagnosisList]
-  B --> C[Each Diagnosis Configured]
-  C --> D[Ready to Simulate]
-
-  D --> E[ChangeDiagnosis(Type)]
-  E --> F[Clear Previous Behavior + FX]
-  F --> G[Load New Diagnosis]
-  G --> H[Assign RuntimeBehavior]
-  H --> I[Call OnEnter()]
-  I --> J[Spawn FX, Indicators, Temp Labels]
-  J --> K[Broadcast Change Event]
-
-  K --> L[UpdateSimulation()]
-  L --> M[OnUpdate() modifies timers/FX]
-  M --> N[Looping Runtime Behavior]
-
-  N --> O[StopSimulation()]
-  O --> P[Cleanup + Broadcast Stop]
-```
+1. **BeginPlay**
+    - `DiagnosisRegistery -> BuildDiagnosisList`
+2. **Each Diagnosis Configured**
+3. **Ready to Simulate**
 
 ---
+
+4. **ChangeDiagnosis(Type)**
+    - Clear previous behavior and FX
+    - Load new diagnosis
+    - Assign `RuntimeBehavior`
+    - Call `OnEnter()`
+    - Spawn:
+        - FX
+        - Indicators
+        - Temperature Labels
+    - Broadcast change event
+
+---
+
+5. **UpdateSimulation()**
+    - Calls `OnUpdate()` on active behavior
+    - Modifies timers and FX
+    - Continues looping runtime behavior
+
+---
+
+6. **StopSimulation()**
+    - Cleanup
+    - Broadcast stop event
+
 
 ## 💡 Key Class Responsibilities
 
