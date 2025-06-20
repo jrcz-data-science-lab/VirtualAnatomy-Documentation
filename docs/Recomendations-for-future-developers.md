@@ -24,6 +24,47 @@ Implementing logic to exclude raycasting on body parts hidden by the slicer coul
 ### New features
 There are still some pending new features, such as the inclusion of blood pressure functionality and additional human parts or organs suggested by the nursing faculty. These enhancements would be valuable additions to the application. For some more details, please go to '(User) requirements list' Issue on GitHub repository.
 
+---
+
+### Recommendations from @animepuika
+
+#### 🧑‍🏫 Usability & UI Enhancements
+
+- Develop a tutorial or onboarding level to guide first-time users through:
+  - Toggling anatomical layers
+  - Using the slicer
+  - Interacting with simulation indicators
+- Automatically activate the slicer menu when accessed to reduce confusion.
+- Fully localize the user interface into Dutch, including:
+  - Quiz buttons
+  - Feedback messages
+  - Interface text
+
+#### ⚙️ System Stability & Technical Refactoring
+
+- Resolve crash behavior in the `SimulationManager`, especially during:
+  - Complex state transitions
+  - Niagara FX spawning or cleanup
+- Refactor the simulation core to:
+  - Improve performance
+  - Increase runtime stability
+  - Simplify behavior switching logic
+- Consolidate duplicated logic related to rendering and simulation parameters across diagnosis behaviors.
+
+#### 🔬 Functional Expansion & Dynamic Simulation
+
+- Enhance the blood circulation system to simulate:
+  - Dynamic blood pressure and flow changes per diagnosis
+- Expand the shock system to include:
+  - Vitals integration (e.g. BPM and blood thickness)
+  - Real-time updates to temperature indicators
+- Enable mesh-based deformation of blood vessels:
+  - Visually simulate shrinking/enlarging based on selected shock type
+- Standardize Niagara FX triggering across all diagnoses for consistency and modularity.
+
+> These improvements aim to evolve the Virtual Anatomy system into a scalable, production-ready tool for medical education.
+
+
 ??? "Recommendations left on version 1.0.0 of this documentation"
 
     This seciton covers some recomendations we have for you. If you find this taken out of context, it is. I have written this to my porfolio and i am putting it here for you so that you have some stepping stones while starting this project and to know, what should you focuse on. I hope i have covered most of the aspects that needs to be done. Keep in mind that this is only my (Simon's) recomendations. Daniel will hopefuly have his own paragraph later on. 
