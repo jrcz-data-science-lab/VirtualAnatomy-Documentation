@@ -47,7 +47,7 @@ You can see below the content browser structure of this Unreal Engine project. T
 │   │   └── Lungs
 │   ├── ElementActions
 │   │   ├── Outliner
-│   │   └── Slicer
+│   │   └── Slicer-functionality
 │   ├── Full-Body-Organized
 │   │   ├── Ear_Bones
 │   │   ├── Lower_Extremity_Bones

@@ -1,46 +1,30 @@
-# `CPP_TreeView.h`
+# `UCPP_TreeView.h`
 
 The `UCPP_TreeView` class defines the tree view widget displayed in the sidebar, allowing users to interact with various components and hierarchical folders. This class manages the data structures needed to populate the tree view and provides helper methods for creating folders and assigning actors.
 
 ## Protected Methods
 
----
-
 ### `void NativePreConstruct()`
 
 This Unreal Engine override is used for setup tasks before the widget is fully constructed. Any necessary initializations for the widget’s design and data binding can be set here.
-
----
 
 ### `void NativeConstruct()`
 
 This Unreal Engine override handles initialization after the widget is constructed. The tree view’s data structures are populated, and event bindings are initialized at this stage.
 
----
-
 ## Protected Members
-
----
 
 ### `TObjectPtr<UTreeView> Tree`
 
 The primary tree view component that displays the hierarchy in the sidebar. It is bindable and accessible within Blueprints, enabling a flexible and interactive UI for hierarchical data visualization.
 
----
-
 ## Private Members
-
----
 
 ### `TArray<UCPP_TreeViewEntry*> TreeViewEntries`
 
 An array storing root-level entries in the tree view. Each `UCPP_TreeViewEntry` represents a folder or component within the sidebar tree structure.
 
----
-
 ## Private Methods
-
----
 
 ### `UCPP_TreeViewEntry* CreateTreeViewEntry(FString folderName, FName tag)`
 
@@ -54,8 +38,6 @@ An array storing root-level entries in the tree view. Each `UCPP_TreeViewEntry` 
 - `UCPP_TreeViewEntry*` - A pointer to the newly created folder entry.
 
 This method creates a folder entry in the sidebar’s tree view based on the specified folder name and tag. It populates the entry’s data and appearance and returns the new entry, which can be further modified or populated with child components.
-
----
 
 ### `void AssignChildren(UCPP_TreeViewEntry* parent, FName tagName)`
 

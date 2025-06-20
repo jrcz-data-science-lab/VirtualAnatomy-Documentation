@@ -15,7 +15,7 @@ Significant improvements to the simulation system (managed by SimulationManager 
 
 - Investigate automated methods for spline generation to better simulate blood particle flow.
 - Use the predefined poses available in the project to support a fully functional and position-aware anatomy simulation system.
-Do not forget about dynamic organ positioning and simulating corresponding blood flow variations based on different body poses.
+Do not forget about dynamic organ positioning and simulating corresponding blood flow variations based on different body poses. (See more: [Body positions](Virtual-Anatomy-(Unreal-Engine)/Explorer-level%20(hospital%20and%20simple%20environment)/Animations/Body-positions.md))
 - Last, but not least, minimize the frequency of crashes that occur when interacting with this system.
 
 ### Slicer
