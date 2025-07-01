@@ -63,7 +63,24 @@ There are still some pending new features, such as the inclusion of blood pressu
 - Standardize Niagara FX triggering across all diagnoses for consistency and modularity.
 
 > These improvements aim to evolve the Virtual Anatomy system into a scalable, production-ready tool for medical education.
+ 
+---
 
+### Recommendations from [@MGreizis](https://github.com/MGreizis)
+
+  A significant technical challenge that was encountered during the development of the quiz module was how tightly coupled the existing application was. The initial, and architecturally cleanest, approach was to create a distinct _QuizGameMode_ and _QuizPlayerController_. This would have encapsulated all quiz logic, clearly separating it from the simulation functionalities of the main application. An attempt was made to do so, however this approach revealed deep-rooted dependencies that made this separation of concerns not feasible within the iteration’s timeframe. The core of the issue lies in the fact that the _ACPP_User_ and _ACPP_GameMode_ classes serve as “pillars” of the entire application, which in turn creates a web of dependencies. For a visual overview of the problem, see the following image:
+
+![image](https://github.com/user-attachments/assets/134550a1-2d9a-4e7a-a02d-1066a6ec3a61)
+
+ -  **The Game Mode**: The ACPP_GameMode is not just where the rules of the level are set; it also acts as a manager factory. It instantiates and keeps these instances of main systems like the _UCPP_SimulationManager, UCPP_IsolateMesh_, and now the _UQuizUIManager_ too. This means that, if any part of the application needs to access these systems, it must be done by casting to _ACPP_GameMode_.
+ -  **The “God Object” Pawn**: With the current architecture, _ACPP_User_ is much more than just a pawn for player controls. It is tightly integrated with core application functionality, like managing camera controls, raycasting, and handling all input for moving and interacting with the 3D model. As the blueprint _BP_User_ (this blueprint is necessary for properly spawning the _ACPP_User_ class in levels, therefore accessing it’s functionality) is derived from _ACPP_User_, any level loaded with the _ACPP_GameMode_ automatically assumes this specific pawn will be in use.
+ -	**Implicit Subsystem Dependencies**: The most critical issue is an implicit dependency on seemingly unrelated subsystems. An example of this is how _UCPP_BaseAnimation_, which is a base class for body animations, directly refers to the _SimulationManager_ from a method within the class to listen for simulation events. 
+ -	**The Consequences**: When a new level is loaded with a separate _QuizGameMode_, which does not hold references to, for example, the _SimulationManager_, the application would crash, as the game mode was not initializing the _SimulationManager_. But other parts of the program, including instances of the animations, were still loaded. Methods within these animation classes would attempt to access the _SimulationManager_ (which does not exist, as it is not being initialized), receive a null pointer, and, due to improper error handling within the existing application, cause the engine to crash. 
+ -	The ideal solution to this problem would be a full architectural refactoring, which would involve decoupling of the _SimulationManager, MeshSelector_, and other systems from the _GameMode_ and _User_ classes by making use of a better event bus, dependency injection, or fetching them as separate engine subsystems.
+
+For the quizzing system backend there are separate suggestions in the [Quizzing System Backend Repo](https://github.com/jrcz-data-science-lab/virtual_anatomy_quiz_ts)
+
+As for next features of the quizzing system, just listen to what the clients (nursing teachers) want, and go off that.
 
 ??? "Recommendations left on version 1.0.0 of this documentation"
 
