@@ -26,9 +26,9 @@ There are still some pending new features, such as the inclusion of blood pressu
 
 ---
 
-### Recommendations from @animepuika
+## Recommendations from @animepuika
 
-#### 🧑‍🏫 Usability & UI Enhancements
+### 🧑‍🏫 Usability & UI Enhancements
 
 - Develop a tutorial or onboarding level to guide first-time users through:
   - Toggling anatomical layers
@@ -40,7 +40,7 @@ There are still some pending new features, such as the inclusion of blood pressu
   - Feedback messages
   - Interface text
 
-#### ⚙️ System Stability & Technical Refactoring
+### ⚙️ System Stability & Technical Refactoring
 
 - Resolve crash behavior in the `SimulationManager`, especially during:
   - Complex state transitions
@@ -51,7 +51,7 @@ There are still some pending new features, such as the inclusion of blood pressu
   - Simplify behavior switching logic
 - Consolidate duplicated logic related to rendering and simulation parameters across diagnosis behaviors.
 
-#### 🔬 Functional Expansion & Dynamic Simulation
+### 🔬 Functional Expansion & Dynamic Simulation
 
 - Enhance the blood circulation system to simulate:
   - Dynamic blood pressure and flow changes per diagnosis
@@ -66,7 +66,7 @@ There are still some pending new features, such as the inclusion of blood pressu
  
 ---
 
-### Recommendations from [@MGreizis](https://github.com/MGreizis)
+## Recommendations from [@MGreizis](https://github.com/MGreizis)
 
   A significant technical challenge that was encountered during the development of the quiz module was how tightly coupled the existing application was. The initial, and architecturally cleanest, approach was to create a distinct _QuizGameMode_ and _QuizPlayerController_. This would have encapsulated all quiz logic, clearly separating it from the simulation functionalities of the main application. An attempt was made to do so, however this approach revealed deep-rooted dependencies that made this separation of concerns not feasible within the iteration’s timeframe. The core of the issue lies in the fact that the _ACPP_User_ and _ACPP_GameMode_ classes serve as “pillars” of the entire application, which in turn creates a web of dependencies. For a visual overview of the problem, see the following image:
 

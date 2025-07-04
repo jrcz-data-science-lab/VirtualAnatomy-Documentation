@@ -1,9 +1,5 @@
 # Documentation intro
 
-!!! Warning
-    
-    The documentation is undergoing significant development and modifications, and this will continue until at most July 6, 2025. As a result, it may be difficult to follow its content at the moment. Apologies for any inconvenience.
-
 Welcome to the documentation for the Unreal Engine–based Virtual Anatomy application built by [JRCZ Data Science Lab](https://jrcz.nl/en/data-science-lab.html).
 This documentation aims to help you navigate the codebase, understand the system’s architecture, and get up to speed with development and deployment processes.
 
