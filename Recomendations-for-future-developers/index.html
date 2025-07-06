@@ -1,0 +1,3352 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the Virtual Anatomy project">
+      
+      
+        <meta name="author" content="JRCZ">
+      
+      
+        <link rel="canonical" href="https://jrcz-data-science-lab.github.io/VirtualAnatomy-Documentation/Recomendations-for-future-developers/">
+      
+      
+        <link rel="prev" href="../Virtual-Anatomy-%28Unreal-Engine%29/Localization/">
+      
+      
+        <link rel="next" href="../Authors/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Recommendations for future developers - Virtual Anatomy documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#recommendations-for-future-developers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Virtual Anatomy documentation" class="md-header__button md-logo" aria-label="Virtual Anatomy documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Virtual Anatomy documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Recommendations for future developers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="indigo" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jrcz-data-science-lab/Virtual-Anatomy-UE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Virtual-Anatomy-UE
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Virtual Anatomy documentation" class="md-nav__button md-logo" aria-label="Virtual Anatomy documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Virtual Anatomy documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jrcz-data-science-lab/Virtual-Anatomy-UE" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Virtual-Anatomy-UE
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentation intro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../About-the-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Setting-up-the-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting up the Virtual Anatomy repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic-information-for-development-of-the-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Codebase overview &amp; guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Virtual Anatomy (Unreal Engine)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Virtual Anatomy (Unreal Engine)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/FirstSteps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    First glance at the project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/ContentBrowser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Content browser
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Main-Menu-level/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Main Menu level
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Explorer level (hospital and simple environment)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Explorer level (hospital and simple environment)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/ExplorerLevelVsHospitalLevel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simple environment vs. Hospital environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/AddingNewBodyParts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding new body parts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_3" id="__nav_5_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Animations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Animations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Animations/Animations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Animations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Animations/Body-positions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Body positions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Animations/UCPP_BaseAnimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_BaseAnimation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_4" id="__nav_5_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Camera
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Camera
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Camera/Camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_CameraControls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_5" id="__nav_5_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Character
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Character
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Character/Character/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Character
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Character/CPP_User/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACPP_User
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_6" id="__nav_5_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mesh Isolator
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Mesh Isolator
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Mesh-Isolator/MeshIsolator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_IsolateMesh (Mesh Isolator)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_7" id="__nav_5_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mesh Selection
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Mesh Selection
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_7_1" id="__nav_5_4_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mesh selector
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Mesh selector
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Mesh-Selection/Mesh-selector/How-is-highlighting-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mesh Selector and highlighting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Mesh-Selection/Mesh-selector/UMeshSelector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UMeshSelector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_7_2" id="__nav_5_4_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Raycasting
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Raycasting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Mesh-Selection/Raycasting/How-is-raycasting-done/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raycasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Mesh-Selection/Raycasting/FRayCaster/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FRayCaster
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_8" id="__nav_5_4_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Simulation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Simulation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/BloodFlowSimulaiton/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blood flow simulation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/GeneralOverview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simulation of Blood Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_8_3" id="__nav_5_4_8_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    BloodSimulation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            BloodSimulation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/BloodSimulation/Blood%20FrameWork/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blood framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/BloodSimulation/HowBloodSimulationWorks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blood Simulation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_8_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_8_4" id="__nav_5_4_8_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ShockSystem
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            ShockSystem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/ShockSystem/Breathing-Dots/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🫁 Breathing Dot Indicators
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/ShockSystem/Debugging-Extension-Tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧪 Debugging &amp; Extension Tips
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/ShockSystem/Fx-and-Materials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    💥 FX and Materials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/ShockSystem/How-Everything-Connects-At-Runtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ⚙️ How Everything Connects at Runtime
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/ShockSystem/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧠 Shock System Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_8_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_8_4_6" id="__nav_5_4_8_4_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Diagnosis
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_4_8_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_8_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Diagnosis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Simulation/ShockSystem/Diagnosis/DiagnosisSystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧬 Diagnosis System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_9" id="__nav_5_4_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Slicer functionality
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_9">
+            <span class="md-nav__icon md-icon"></span>
+            Slicer functionality
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Slicer-functionality/Slicer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slicer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Slicer-functionality/ACPP_Slicer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACPP_Slicer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_10" id="__nav_5_4_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    UI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_10">
+            <span class="md-nav__icon md-icon"></span>
+            UI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/GeneralApproach/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General approach
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_10_2" id="__nav_5_4_10_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reusable sliders
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Reusable sliders
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/Reusable-sliders/ReusableSliders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/Reusable-sliders/SlideBarParmaters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SlideBarsParameters.h
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_10_3" id="__nav_5_4_10_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sidebars
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            Sidebars
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/Sidebars/ExplorerSideBar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Explorer sidebar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_10_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_10_3_2" id="__nav_5_4_10_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Slicer Side Bar
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_4_10_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_10_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Slicer Side Bar
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/Sidebars/Slicer-Side-Bar/SlicerSideBar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slicer Side Bar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/Sidebars/Slicer-Side-Bar/UCPP_SlicerSideBar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_SlicerSideBar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_10_4" id="__nav_5_4_10_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    TreeView
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            TreeView
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/TreeView/HowTreeViewIsDone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How tree view is done
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_10_5" id="__nav_5_4_10_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    UIClasses
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            UIClasses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/UIClasses/ClickedOnInfo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_ClickedOnInfo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/UIClasses/SettingsSlider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_SettingsSlider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/UIClasses/SimulationButton/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_SimulationButton
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/UIClasses/SimulationIsland/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_SimulationIsland
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/UIClasses/SimulationSlideBar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_SimulationSlideBar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/UIClasses/SlicerSlideBar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_SlicerSlideBar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/UI/UIClasses/TreeView/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_TreeView.h
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_11" id="__nav_5_4_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Utilities
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_11">
+            <span class="md-nav__icon md-icon"></span>
+            Utilities
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Utilities/AnatomyHelpers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AnatomyUtils
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Quiz
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Quiz
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Quiz_System_Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quiz System Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Mesh_And_Group_Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FMeshCatalogEntryUE &amp; FOrganGroupUE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Mesh_Knowledge_Base_Data_Asset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UMeshKnowledgeBaseDataAsset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Quiz_Answer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FQuizAnswer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Quiz_Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FQuizData
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Quiz_Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UQuizManager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Quiz_Question/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FQuizQuestion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Quiz_Submission_Payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QuizSubmissionPayload
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Quiz_UI_Manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UQuizUIManager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5_10" id="__nav_5_5_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Widgets
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_5_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5_10">
+            <span class="md-nav__icon md-icon"></span>
+            Widgets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Answer_Button_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_AnswerButtonWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Multiple_Choice_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_MultipleChoiceWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Open_Ended_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_OpenEndedWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Quiz_Details_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_QuizDetailsWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Quiz_End_Screen_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_QuizEndScreenWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Quiz_Item_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_QuizItemWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Quiz_Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_QuizOverview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Quiz_Question_Base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_QuizQuestionBase (Base Class)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Select_Organ_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_SelectOrganWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/Study_Year_Selector_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UStudyYearSelectorWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Quiz/Widgets/True_False_Widget/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UCPP_TrueFalseWidget
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Localization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Localization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Recommendations for future developers
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recommendations for future developers
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-from-bartan02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations from @bartan02
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations from @bartan02">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slicer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slicer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      New features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-from-animepuika" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations from @animepuika
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations from @animepuika">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usability-ui-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧑‍🏫 Usability &amp; UI Enhancements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-stability-technical-refactoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ System Stability &amp; Technical Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-expansion-dynamic-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔬 Functional Expansion &amp; Dynamic Simulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-from-mgreizis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations from @MGreizis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Authors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-from-bartan02" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations from @bartan02
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations from @bartan02">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slicer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slicer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      New features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-from-animepuika" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations from @animepuika
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations from @animepuika">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usability-ui-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧑‍🏫 Usability &amp; UI Enhancements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-stability-technical-refactoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ System Stability &amp; Technical Refactoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-expansion-dynamic-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔬 Functional Expansion &amp; Dynamic Simulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations-from-mgreizis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations from @MGreizis
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="recommendations-for-future-developers">Recommendations for future developers</h1>
+<h2 id="recommendations-from-bartan02">Recommendations from <a href="(https://github.com/Bartan02)">@bartan02</a></h2>
+<h3 id="version-control">Version Control</h3>
+<p>When working with Unreal Engine assets (especially with this one: ExplorerMap.uasset), developers must be extremely cautious with branch management. Concurrent modifications to the same asset can lead to difficult merge conflicts.
+Additionally, To maintain project integrity and reduce conflicts, changes should be committed, pulled, and merged frequently—especially after major updates or before switching tasks.</p>
+<h3 id="simulation-manager">Simulation Manager</h3>
+<p>Significant improvements to the simulation system (managed by SimulationManager class), are recommended:</p>
+<ul>
+<li>Investigate automated methods for spline generation to better simulate blood particle flow.</li>
+<li>Use the predefined poses available in the project to support a fully functional and position-aware anatomy simulation system.
+Do not forget about dynamic organ positioning and simulating corresponding blood flow variations based on different body poses. (See more: <a href="../Virtual-Anatomy-%28Unreal-Engine%29/Explorer-level%20%28hospital%20and%20simple%20environment%29/Animations/Body-positions/">Body positions</a>)</li>
+<li>Last, but not least, minimize the frequency of crashes that occur when interacting with this system.</li>
+</ul>
+<h3 id="slicer">Slicer</h3>
+<p>Implementing logic to exclude raycasting on body parts hidden by the slicer could be considered. While not critical, this enhancement could improve performance and offer a smoother, more intuitive user experience, especially during interactions with the visible anatomy layers.</p>
+<h3 id="new-features">New features</h3>
+<p>There are still some pending new features, such as the inclusion of blood pressure functionality and additional human parts or organs suggested by the nursing faculty. These enhancements would be valuable additions to the application. For some more details, please go to '(User) requirements list' Issue on GitHub repository.</p>
+<hr />
+<h2 id="recommendations-from-animepuika">Recommendations from @animepuika</h2>
+<h3 id="usability-ui-enhancements">🧑‍🏫 Usability &amp; UI Enhancements</h3>
+<ul>
+<li>Develop a tutorial or onboarding level to guide first-time users through:</li>
+<li>Toggling anatomical layers</li>
+<li>Using the slicer</li>
+<li>Interacting with simulation indicators</li>
+<li>Automatically activate the slicer menu when accessed to reduce confusion.</li>
+<li>Fully localize the user interface into Dutch, including:</li>
+<li>Quiz buttons</li>
+<li>Feedback messages</li>
+<li>Interface text</li>
+</ul>
+<h3 id="system-stability-technical-refactoring">⚙️ System Stability &amp; Technical Refactoring</h3>
+<ul>
+<li>Resolve crash behavior in the <code>SimulationManager</code>, especially during:</li>
+<li>Complex state transitions</li>
+<li>Niagara FX spawning or cleanup</li>
+<li>Refactor the simulation core to:</li>
+<li>Improve performance</li>
+<li>Increase runtime stability</li>
+<li>Simplify behavior switching logic</li>
+<li>Consolidate duplicated logic related to rendering and simulation parameters across diagnosis behaviors.</li>
+</ul>
+<h3 id="functional-expansion-dynamic-simulation">🔬 Functional Expansion &amp; Dynamic Simulation</h3>
+<ul>
+<li>Enhance the blood circulation system to simulate:</li>
+<li>Dynamic blood pressure and flow changes per diagnosis</li>
+<li>Expand the shock system to include:</li>
+<li>Vitals integration (e.g. BPM and blood thickness)</li>
+<li>Real-time updates to temperature indicators</li>
+<li>Enable mesh-based deformation of blood vessels:</li>
+<li>Visually simulate shrinking/enlarging based on selected shock type</li>
+<li>Standardize Niagara FX triggering across all diagnoses for consistency and modularity.</li>
+</ul>
+<blockquote>
+<p>These improvements aim to evolve the Virtual Anatomy system into a scalable, production-ready tool for medical education.</p>
+</blockquote>
+<hr />
+<h2 id="recommendations-from-mgreizis">Recommendations from <a href="https://github.com/MGreizis">@MGreizis</a></h2>
+<p>A significant technical challenge that was encountered during the development of the quiz module was how tightly coupled the existing application was. The initial, and architecturally cleanest, approach was to create a distinct <em>QuizGameMode</em> and <em>QuizPlayerController</em>. This would have encapsulated all quiz logic, clearly separating it from the simulation functionalities of the main application. An attempt was made to do so, however this approach revealed deep-rooted dependencies that made this separation of concerns not feasible within the iteration’s timeframe. The core of the issue lies in the fact that the <em>ACPP_User</em> and <em>ACPP_GameMode</em> classes serve as “pillars” of the entire application, which in turn creates a web of dependencies. For a visual overview of the problem, see the following image:</p>
+<p><img alt="image" src="https://github.com/user-attachments/assets/134550a1-2d9a-4e7a-a02d-1066a6ec3a61" /></p>
+<ul>
+<li><strong>The Game Mode</strong>: The ACPP_GameMode is not just where the rules of the level are set; it also acts as a manager factory. It instantiates and keeps these instances of main systems like the <em>UCPP_SimulationManager, UCPP_IsolateMesh</em>, and now the <em>UQuizUIManager</em> too. This means that, if any part of the application needs to access these systems, it must be done by casting to <em>ACPP_GameMode</em>.</li>
+<li><strong>The “God Object” Pawn</strong>: With the current architecture, <em>ACPP_User</em> is much more than just a pawn for player controls. It is tightly integrated with core application functionality, like managing camera controls, raycasting, and handling all input for moving and interacting with the 3D model. As the blueprint <em>BP_User</em> (this blueprint is necessary for properly spawning the <em>ACPP_User</em> class in levels, therefore accessing it’s functionality) is derived from <em>ACPP_User</em>, any level loaded with the <em>ACPP_GameMode</em> automatically assumes this specific pawn will be in use.</li>
+<li><strong>Implicit Subsystem Dependencies</strong>: The most critical issue is an implicit dependency on seemingly unrelated subsystems. An example of this is how <em>UCPP_BaseAnimation</em>, which is a base class for body animations, directly refers to the <em>SimulationManager</em> from a method within the class to listen for simulation events. </li>
+<li><strong>The Consequences</strong>: When a new level is loaded with a separate <em>QuizGameMode</em>, which does not hold references to, for example, the <em>SimulationManager</em>, the application would crash, as the game mode was not initializing the <em>SimulationManager</em>. But other parts of the program, including instances of the animations, were still loaded. Methods within these animation classes would attempt to access the <em>SimulationManager</em> (which does not exist, as it is not being initialized), receive a null pointer, and, due to improper error handling within the existing application, cause the engine to crash. </li>
+<li>The ideal solution to this problem would be a full architectural refactoring, which would involve decoupling of the <em>SimulationManager, MeshSelector</em>, and other systems from the <em>GameMode</em> and <em>User</em> classes by making use of a better event bus, dependency injection, or fetching them as separate engine subsystems.</li>
+</ul>
+<p>For the quizzing system backend there are separate suggestions in the <a href="https://github.com/jrcz-data-science-lab/virtual_anatomy_quiz_ts">Quizzing System Backend Repo</a></p>
+<p>As for next features of the quizzing system, just listen to what the clients (nursing teachers) want, and go off that.</p>
+<details>
+<summary>Recommendations left on version 1.0.0 of this documentation</summary>
+<p>This seciton covers some recomendations we have for you. If you find this taken out of context, it is. I have written this to my porfolio and i am putting it here for you so that you have some stepping stones while starting this project and to know, what should you focuse on. I hope i have covered most of the aspects that needs to be done. Keep in mind that this is only my (Simon's) recomendations. Daniel will hopefuly have his own paragraph later on. </p>
+<p>The final recommendation is to continue with the project. Since the human body is a highly complex organism, more than six months are needed to fully translate it into a digital version. While the anatomical model was provided, it was not initially suited for interactive 3D applications. Consequently, significant reduction in the model's triangle count was implemented. Although these optimizations made the model more suitable for interactive rendering, they reduced the model's quality. It is recommended to employ more advanced triangle reduction techniques to achieve better performance while maintaining or improving model quality.</p>
+<p>The Niagara system, which simulates blood, was implemented later in the process. Therefore, additional optimizations and general improvements should be prioritized. For instance, collision detection currently uses ray tracing, which has a significant performance cost. A more approximate solution, such as analytical planes, could be implemented for particle/plane collisions. Since particles are represented as sprites, this issue can effectively be reduced to plane/plane collision handling.</p>
+<p>Draw call reduction—achieved by merging parts of the model—enabled the application to render a single frame in 8ms, which is excellent and does not require further optimization. However, this decision made it challenging to isolate specific parts of the body for display. For instance, it is currently impossible to display only the upper body. A recommended solution is to use a technique called stencil masking, which modifies stencil buffer values to force the renderer to exclude certain model parts from being displayed.</p>
+<p>The underlying architecture has been designed to be future-proof. Various design patterns were utilized, and a small UI framework was developed. It is recommended that future developers expand this UI framework to ensure seamless communication with underlying systems like simulation and animations.</p>
+<p>Given the project's scale, new developers should initially focus on resolving smaller bugs to familiarize themselves with the codebase. For example, one such bug is the camera deadlock that occurs when the user gets too close to the body and performs specific movements, preventing further navigation.</p>
+<p>Since it was agreed with key stakeholders that the primary focus should be on the "Explorer Level" of the Unreal Engine application, future developers are advised to concentrate on the quiz feature and its integration with the website. The quiz feature could benefit from the existing UI framework to achieve a modern look and streamline the automation of quiz question creation. The login and registration system also require improvements, and the quiz creation web application should be heavily inspired by the "Wooclap" platform, as per client feedback.</p>
+<p>Lastly, future developers should explore automated methods for creating splines used for blood particle movement. One promising approach is voxelization, which involves constructing a sparse voxel octree. The centers of individual voxels can then serve as control points for the splines.</p>
+<p>For the employer, it is recommended to hire individuals skilled in animation. The current solution uses superficial animated body parts that do not accurately represent the internal processes of the human body. Thanks to the application’s modular structure, it is straightforward to replace animations and animation assets without disrupting the existing solution.</p>
+<p>Last area of focus is ray-casting, which involves clicking on the model and identifying the selected parts. While this functionality works reasonably well, it is not the most accurate. One potential improvement is to increase the scale of the model and the picker model, creating a larger surface area for more precise selection of small meshes. However, this change would require adjustments to the camera’s field of view (FOV) and other tweaks to ensure the model does not appear oversized. These tweaks may require further exploration to implement effectively.</p>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <h3><i>© 2025 Joint Research Center Zeeland. All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
