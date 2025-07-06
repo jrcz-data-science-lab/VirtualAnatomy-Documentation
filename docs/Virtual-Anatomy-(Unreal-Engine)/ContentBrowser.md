@@ -8,47 +8,73 @@ On the very bottom of the Unreal Engine, you should see an icon with a folder; t
 
 You can see below the content browser structure of this Unreal Engine project. There is a lot, but you do not need to swot it all at once. You will get used to it as you work with this project for a long time. 
 
-!!! Warning
-    Content browser below TO BE UPDATED. Some directories are changed or removed, and some are added. Those changes have not been reflected in this document yet.
-
 ```shell
- ├── Blueprints
+.
+├── Blueprints
+│   ├── BloodFlowSimulation
+│   │   └── BloodSimPaths
+│   ├── Enviroment
 │   ├── InfoElements
+│   ├── Quiz
+│   ├── Splines
 │   └── UserControls
 ├── Collections
+├── DataAssets
 ├── Developers
-│   └── wpsimon09
+│   └── bartoszadamczyk
 │       └── Collections
-├── Enums
 ├── Input
 │   └── InputActions
 ├── Localization
 │   └── Game
 │       ├── en
 │       └── nl-NL
+├── LocalizationDataTables
 ├── Maps
-├── Materials
+├── Models
 │   ├── Body-Merged-Full
-│   │   ├── Animations
+│   │   ├── Arteries
+│   │   ├── BodyPartBlueprints
 │   │   │   ├── Body
+│   │   │   ├── Digestion
 │   │   │   ├── Hearth
 │   │   │   └── Lungs
-│   │   ├── Arteries
 │   │   ├── Bones
-│   │   ├── Hearth
-│   │   │   ├── Hearth
+│   │   ├── Digestive_System
+│   │   ├── Heart
+│   │   │   ├── Heart
 │   │   │   ├── PapillaryMuscle
+│   │   │   ├── SubcalvinianArteries
 │   │   │   └── Valves
-│   │   └── Lungs
+│   │   ├── Lungs
+│   │   ├── Muscles
+│   │   └── Veins
 │   ├── Body-No-Material
 │   │   ├── Arteries
 │   │   ├── Bones
+│   │   ├── Digestive_System
 │   │   ├── Hearth
 │   │   └── Lungs
+│   ├── Body-Picker-Textured
+│   │   └── Arteries
+│   │       └── Components
 │   ├── ElementActions
-│   │   ├── Outliner
-│   │   └── Slicer-functionality
+│   │   └── Outliner
+│   ├── Enviroment
+│   │   ├── BookShelf
+│   │   ├── HopitalRoomFloor
+│   │   │   └── textures
+│   │   ├── HospitalBed
+│   │   ├── HospitalDoors
+│   │   ├── HospitalEquipment
+│   │   ├── HospitalRoom-Wall
+│   │   │   ├── textures_new
+│   │   │   └── textures_old
+│   │   ├── HospitalRoomAssetPack
+│   │   ├── IndoorPlant
+│   │   └── NeonLight
 │   ├── Full-Body-Organized
+│   │   ├── Digestive_System
 │   │   ├── Ear_Bones
 │   │   ├── Lower_Extremity_Bones
 │   │   │   └── Lower_Extremity_Bones
@@ -57,71 +83,48 @@ You can see below the content browser structure of this Unreal Engine project. T
 │   │   │   └── Textures
 │   │   ├── Upper_Extremity_Bones
 │   │   └── Vertebral_Column_Bones
-│   ├── Full-body-test-all-in-one
 │   ├── HDRi
-│   ├── Model
-│   │   ├── Materials
-│   │   │   ├── Heart
-│   │   │   │   ├── ConductionSystem
-│   │   │   │   ├── CoronaryVessels
-│   │   │   │   ├── EpicardialFat
-│   │   │   │   ├── Misc
-│   │   │   │   ├── Muscle
-│   │   │   │   ├── OutflowTract
-│   │   │   │   └── PapillaryMuscle
-│   │   │   ├── Lungs
-│   │   │   ├── PulmonaryArteries
-│   │   │   └── PulmonaryVeins
-│   │   ├── StaticMesh
-│   │   │   ├── Heart
-│   │   │   │   ├── ConductionSystem
-│   │   │   │   ├── CoronaryVessels
-│   │   │   │   ├── EpicardialFat
-│   │   │   │   ├── Misc
-│   │   │   │   ├── Muscle
-│   │   │   │   ├── OutflowTract
-│   │   │   │   ├── PapillaryMuscle
-│   │   │   │   └── Valves
-│   │   │   ├── Lungs
-│   │   │   ├── PulmonaryArteries
-│   │   │   └── PulmonaryVeins
-│   │   └── Textures
-│   │       ├── Heart
-│   │       │   ├── CoronaryVessels
-│   │       │   ├── Muscle
-│   │       │   └── OutflowTract
-│   │       ├── Lungs
-│   │       └── PulmonaryVeins
-│   └── TestSkeleton
+│   ├── HospitalRoomAssetPack
+│   └── Model
+│       ├── Textures
+│       │   └── PulmonaryVeins
+│       └── Window
+├── Movies
+├── Niagara
 ├── Python
-├── Stereo3D_VitalVolkov
-│   ├── Blueprints
-│   ├── Input
-│   │   └── Actions
-│   └── Materials
-├── Tests
+│   ├── DataExports
+│   └── GeneratedSeedData
+├── Sequences
+│   ├── BloodPaths
+│   └── Misc
+├── Slicer
 └── UI
     ├── Assets
     │   ├── ButtonAssets
     │   └── General
+    ├── ButtonsForShocks
     ├── Components
-    │   └── Quiz
-    │       └── Questions
-    ├── FloatingWindows
+    │   ├── CameraControls
+    │   ├── Depricated
+    │   ├── DropDownMenues
+    │   ├── PopUps
+    │   ├── SideBar
+    │   │   └── TreeView
+    │   ├── Sliders
+    │   └── ToolTips
     ├── Fonts
     ├── Icons
     │   ├── Element
     │   ├── Mouse
     │   └── Sidebar
     ├── Images
-    │   └── LocationWidget
     ├── Islands
     ├── LevelUI
     │   ├── ExplorerLevelUI
-    │   │   └── Sidebars
-    │   └── QuizLevelUI
-    │       └── Sidebars
+    │   └── QuizUI
     ├── Menus
+    ├── Quiz
+    │   └── Questions
     └── ReusableButtons
 ```
 
